@@ -32,6 +32,10 @@ export default {
   },
   computed: {
     products() {
+      var myUrl = "https://cors-anywhere.herokuapp.com";
+      myUrl += "/http://www.recipepuppy.com/api/?i=" + this.searchText;
+    },
+    products_old() {
       return this.$root.$data.products.filter(
         (product) => product.name.toLowerCase().search(this.searchText) >= 0
       );
