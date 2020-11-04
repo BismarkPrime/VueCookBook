@@ -34,6 +34,18 @@ export default {
     products() {
       var myUrl = "https://cors-anywhere.herokuapp.com";
       myUrl += "/http://www.recipepuppy.com/api/?i=" + this.searchText;
+      useJSON();
+        async function fetchRecipeJSON() {
+        const response = await fetch(myUrl, {mode: 'cors'});
+        let recipeJSON = await response.json();
+        console.log(recipeJSON);
+        return recipeJSON;
+      }
+      async function useJSON() {
+        let passedHalf = false;
+        let json = await fetchRecipeJSON();
+        console.log(json);
+      }
     },
     products_old() {
       return this.$root.$data.products.filter(
