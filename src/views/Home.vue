@@ -3,7 +3,14 @@
     <div class="wrapper">
       <div class="search">
         <form class="pure-form">
-          <i class="fas fa-search"></i><input v-model="searchText" />
+          <i class="fas fa-hamburger"></i
+          ><input v-model="searchText" placeholder="Search by Recipe" />
+        </form>
+      </div>
+      <div class="search">
+        <form class="pure-form">
+          <i class="fas fa-carrot"></i
+          ><input v-model="searchText" placeholder="Search by Ingredient" />
         </form>
       </div>
     </div>
@@ -37,13 +44,16 @@ export default {
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+
 }
 
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 50%;
+  margin: .2em;
 }
 
 form {
