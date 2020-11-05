@@ -32,25 +32,7 @@ export default {
     };
   },
   computed: {
-    async products() {
-      var myUrl = "https://cors-anywhere.herokuapp.com";
-      myUrl += "/http://www.recipepuppy.com/api/?i=" + this.searchText;
-      
-      async function useJSON() {
-        let passedHalf = false;
-        let json = await fetchRecipeJSON();
-        console.log(json);
-      }
-      async function fetchRecipeJSON() {
-        const response = await fetch(myUrl, {mode: 'cors'});
-        let recipeJSON = await response.json();
-        console.log(recipeJSON);
-        return recipeJSON;
-      }
-
-      useJSON();
-    },
-    products_old() {
+    products() {
       return this.$root.$data.products.filter(
         (product) => product.name.toLowerCase().search(this.searchText) >= 0
       );
