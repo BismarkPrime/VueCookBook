@@ -1,0 +1,35 @@
+{
+    "recipes" : [
+        {
+            "name" : "Chicken & Rice Casserole",
+            "author" : "Merrily Seely",
+            "ingredient_list" : [
+                "butter",
+                "cream of chicken soup",
+                "onion",
+                "almonds",
+                "lemon juice",
+                "mayonnaise",
+                "chicken",
+                "turkey",
+                "milk",
+                "rice",
+                "Rice Chex"
+            ],
+            "ingredients" : [
+                "1 TBSP butter",
+                "2 cans of cream of chicken soup",
+                "¼ c chopped onion",
+                "½ c chopped almonds",
+                "½ c lemon juice",
+                "1 c mayonnaise",
+                "5 c chicken or turkey",
+                "up to 1 c milk",
+                "2 c rice",
+                "8 c. crushed Rice Chex cereal",
+                "½ c. melted butter"
+            ],
+            "procedure" : "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with:\n8 c. crushed Rice Chex cereal\n½ c. melted butter\nBake at 350° F for 1 hour uncovered."
+        }
+    ]
+}

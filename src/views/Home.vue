@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      currentProducts: [],
       searchText: "",
     };
   },
@@ -34,23 +35,28 @@ export default {
     products() {
       var myUrl = "https://cors-anywhere.herokuapp.com";
       myUrl += "/http://www.recipepuppy.com/api/?i=" + this.searchText;
-      useJSON();
-        async function fetchRecipeJSON() {
-        const response = await fetch(myUrl, {mode: 'cors'});
+      let fetchRecipeJSON = async (myUrl) => {
+        const response = await fetch(myUrl, { mode: "cors" });
         let recipeJSON = await response.json();
         console.log(recipeJSON);
         return recipeJSON;
-      }
-      async function useJSON() {
-        let passedHalf = false;
-        let json = await fetchRecipeJSON();
-        console.log(json);
-      }
+      };
+      let json = fetchRecipeJSON(myUrl);
+      console.log(json);
+      return json;
     },
     products_old() {
       return this.$root.$data.products.filter(
         (product) => product.name.toLowerCase().search(this.searchText) >= 0
       );
+    },
+  },
+  methods: {
+    fetchRecipeJSON: async (myUrl) => {
+      const response = await fetch(myUrl, { mode: "cors" });
+      let recipeJSON = await response.json();
+      console.log(recipeJSON);
+      return recipeJSON;
     },
   },
 };
@@ -62,14 +68,13 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-
 }
 
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 50%;
-  margin: .2em;
+  margin: 0.2em;
 }
 
 form {
