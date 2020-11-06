@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="product" v-for="recipe in recipes" :key="recipe.name.replace(/\s+/g, '')">
+    <div class="product" v-for="recipe in recipes" :key="recipe.name.replace(/[\s+()]/g, '')">
       <div class="row">
         <div class="recipe-wrapper">
           <button
@@ -8,7 +8,7 @@
             type="button"
             id="dropdownMenuButton"
             data-toggle="collapse"
-            :data-target="'#' + recipe.name.replace(/\s+/g, '') + '_collapsable'"
+            :data-target="'#' + recipe.name.replace(/[\s+()]/g, '') + '_collapsable'"
           >
             <div class="recipe-info">
               <div class="image">
@@ -23,7 +23,7 @@
               <i :class="'fa' + (isFavorite(recipe.name) ? '' : 'r') + ' fa-heart fa-2x'"></i>
             </div>
           </button>
-          <div class="collapse row" :id="recipe.name.replace(/\s+/g, '') + '_collapsable'">
+          <div class="collapse row" :id="recipe.name.replace(/[\s+()]/g, '') + '_collapsable'">
             <div class="recipe-details">
               <h2>Ingredients</h2>
               <div class="container-fluid">
@@ -60,36 +60,20 @@ export default {
   },
 
   created() {
-    // if (!this.$root.$data.cart.length) {
-    //   for (let recipe of this.recipes) {
-    //     this.$root.$data.cart.push({ recipe: recipe, count: 0 });
-    //   }
-    // }
+
   },
 
   methods: {
     addToFavorites(currentRecipe) {
-      // if (!this.$root.$data.cart.length) {
-      //   for (let recipe of this.recipes) {
-      //     this.$root.$data.cart.push({ product: recipe, count: 0 });
-      //   }
-      // }
-      //let i = this.$root.$data.cart.indexOf(
 
       let recipeIndex = this.$root.$data.recipeList.findIndex((recipe) => {
         return recipe == currentRecipe;
       });
-      console.log(recipeIndex);
       this.$root.$data.recipeList[recipeIndex].favorite = !this.$root.$data
         .recipeList[recipeIndex].favorite;
 
       this.$root.$data.recipeList.push({});
       this.$root.$data.recipeList.length--;
-
-      //);
-      //this.$root.$data.cart[i].count++;
-      //console.log(i);
-      //console.log(this.$root.$data.cart[i]);
     },
     isFavorite(recipeName) {
       let index = this.$root.$data.recipeList.findIndex((recipe) => {

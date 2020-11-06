@@ -29,22 +29,12 @@ export default {
   },
   computed: {
     recipes() {
-      //console.log(this.category);
       for (let section of this.$root.$data.cookBook) {
-        console.log("Comparing next two");
-        console.log(section.category);
-        console.log(this.category);
         if (section.category == this.category) {
-          console.log(section.recipes);
-          console.log("success");
           return section.recipes;
         }
       }
-      console.log("returned nothing");
       return [];
-      // return this.$root.$data.cookBook.filter(
-      //   (section) => section.category === this.category
-      // ).at(0).recipes;
     },
     products_old() {
       return this.$root.$data.cookBook.filter(

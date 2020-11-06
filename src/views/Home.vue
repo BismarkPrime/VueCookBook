@@ -2,13 +2,13 @@
   <div class="center-content">
     <div class="wrapper">
       <div class="search">
-        <form class="pure-form">
+        <form class="pure-form" @submit.prevent>
           <i class="fas fa-hamburger"></i>
           <input v-model="recipeQuery" placeholder="Search by Recipe" />
         </form>
       </div>
       <div class="search">
-        <form class="pure-form">
+        <form class="pure-form" @submit.prevent>
           <i class="fas fa-carrot"></i>
           <input
             v-model="ingredientQuery"
@@ -39,7 +39,7 @@ export default {
   computed: {
     recipes() {
       let filteredRecipes = this.$root.$data.recipeList.filter(
-        (recipe) => recipe.name.toLowerCase().search(this.recipeQuery) >= 0
+        (recipe) => recipe.name.toLowerCase().search(this.recipeQuery.toLowerCase()) >= 0
       );
       let ingredientQueryList = this.ingredientQuery.split(",");
       for (let ingredientQuery of ingredientQueryList) {
@@ -47,7 +47,6 @@ export default {
           filteredRecipes = filteredRecipes.filter((recipe) => {
             for (let ingredient of recipe.ingredient_list) {
               if (ingredient.search(ingredientQuery.trim()) >= 0) {
-                console.log(recipe.name.replace(/\s+/g, ""));
                 return true;
               }
             }
@@ -62,9 +61,8 @@ export default {
     fetchRecipeJSON: async (myUrl) => {
       const response = await fetch(myUrl, { mode: "cors" });
       let recipeJSON = await response.json();
-      console.log(recipeJSON);
       return recipeJSON;
-    },
+    }
   },
 };
 </script>

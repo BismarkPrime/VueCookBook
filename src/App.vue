@@ -45,11 +45,9 @@ export default {
 
   computed: {
     cartCount() {
-      console.log("here");
       let count = this.$root.$data.recipeList.reduce((total, current) => {
         return total + current.favorite;
       }, 0);
-      console.log(count);
       return count;
     },
   },
