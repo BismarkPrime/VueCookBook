@@ -24,26 +24,28 @@
             </div>
           </button>
           <div class="collapse row" :id="recipe.name.replace(/\s+/g, '')">
-            <h2>Ingredients</h2>
-            <hr />
-            <div class="container">
-              <div class="row">
-                <div
-                  v-for="(ingredient, index) in recipe.ingredients"
-                  :key="index"
-                >
-                  <div class="col-6-sm col-4-md col-3-lg">
-                    <ul>
-                      <li>{{ ingredient }}</li>
-                    </ul>
+            <div class="recipe-details">
+              <h2>Ingredients</h2>
+              <hr />
+              <div class="container">
+                <div class="row">
+                  <div
+                    v-for="(ingredient, index) in recipe.ingredients"
+                    :key="index"
+                  >
+                    <div class="col-6-sm col-4-md col-3-lg">
+                      <ul>
+                        <li>{{ ingredient }}</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+              <h2>Procedure</h2>
+              <p>
+                {{ recipe.procedure }}
+              </p>
             </div>
-            <h2>Procedure</h2>
-            <p>
-              {{ recipe.procedure }}
-            </p>
           </div>
         </div>
       </div>
@@ -92,7 +94,8 @@ export default {
   width: 100%;
   padding: 0 !important;
   border: 2px solid rgb(85, 85, 85);
-  border-radius: 9px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .inner-button {
@@ -106,16 +109,6 @@ export default {
   background-color: #333;
 }
 
-.container {
-  text-align: center;
-  margin: 0 0 !important;
-  /* padding: 0 0 !important; */
-}
-
-/* .block-div {
-  display: block;
-} */
-
 .recipe-info div {
   float: left;
 }
@@ -126,10 +119,8 @@ export default {
   border: none;
 }
 
-.dropdown {
-  display: flex;
-  justify-content: left;
-  width: 100%;
+.recipe-details {
+  position: relative;
 }
 
 .products {
@@ -177,7 +168,7 @@ export default {
   justify-content: left;
 }
 .box {
-  display: flex;  
+  display: flex;
   flex-wrap: wrap;
   width: 10px;
 }
