@@ -47,7 +47,7 @@ export default {
           filteredRecipes = filteredRecipes.filter((recipe) => {
             for (let ingredient of recipe.ingredient_list) {
               if(ingredient.search(ingredientQuery.trim()) >= 0) {
-                console.log(ingredient);
+                console.log(recipe.name.replace(/\s+/g, ''));
                 return true;
               }
             }

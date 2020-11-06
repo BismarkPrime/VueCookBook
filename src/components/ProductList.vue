@@ -1,14 +1,13 @@
 <template>
   <div class="wrapper">
-    <div class="product" v-for="recipe in recipes" :key="recipe.id">
-      <div class="dropdown">
+    <div class="product container" v-for="recipe in recipes" :key="recipe.id">
+      <div class="row">
         <button
-          class="btn btn-secondary dropdown-toggle long-btn"
+          class="btn btn-secondary long-btn"
           type="button"
           id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+          data-toggle="collapse"
+          :data-target=" '#' + recipe.name.replace(/\s+/g, '')"
         >
           <div class="left-align">
             <div class="image">
@@ -16,13 +15,12 @@
             </div>
             <div class="info1">
               <h1>{{ recipe.name }}</h1>
-              <p>{{ recipe.country }}</p>
+              <p>{{ "By " + recipe.author }}</p>
             </div>
           </div>
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">
-            <h3>Ingredients</h3>
+        <div class="collapse row" :id="recipe.name.replace(/\s+/g, '')">
+            <h2>Ingredients</h2>
             <hr>
             <div class="container">
               <div class="row">
@@ -38,14 +36,10 @@
                 </div>
               </div>
             </div>
-          </a>
-          <a class="dropdown-item" href="#">
-            <h3>Procedure</h3>
-            <hr>
-            <div class="box">
-              <p>{{ recipe.procedure }}</p>
-            </div>
-          </a>
+            <h2>Procedure</h2>
+            <p>
+              {{ recipe.procedure }}
+            </p>
         </div>
       </div>
 
