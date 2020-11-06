@@ -1,35 +1,266 @@
 {
-    "recipes" : [
+    "cookbook": [
         {
-            "name" : "Chicken & Rice Casserole",
-            "author" : "Merrily Seely",
-            "ingredient_list" : [
-                "butter",
-                "cream of chicken soup",
-                "onion",
-                "almonds",
-                "lemon juice",
-                "mayonnaise",
-                "chicken",
-                "turkey",
-                "milk",
-                "rice",
-                "Rice Chex"
-            ],
-            "ingredients" : [
-                "1 TBSP butter",
-                "2 cans of cream of chicken soup",
-                "¼ c chopped onion",
-                "½ c chopped almonds",
-                "½ c lemon juice",
-                "1 c mayonnaise",
-                "5 c chicken or turkey",
-                "up to 1 c milk",
-                "2 c rice",
-                "8 c. crushed Rice Chex cereal",
-                "½ c. melted butter"
-            ],
-            "procedure" : "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with:\n8 c. crushed Rice Chex cereal\n½ c. melted butter\nBake at 350° F for 1 hour uncovered."
+            "category": "breakfast",
+            "recipes": [
+                {
+                    "name": "Chicken & Rice Casserole",
+                    "author": "Merrily Seely",
+                    "ingredient_list": [
+                        "butter",
+                        "cream of chicken soup",
+                        "onion",
+                        "almonds",
+                        "lemon juice",
+                        "mayonnaise",
+                        "chicken",
+                        "turkey",
+                        "milk",
+                        "rice",
+                        "Rice Chex"
+                    ],
+                    "ingredients": [
+                        "1 TBSP butter",
+                        "2 cans of cream of chicken soup",
+                        "¼ c chopped onion",
+                        "½ c chopped almonds",
+                        "½ c lemon juice",
+                        "1 c mayonnaise",
+                        "5 c chicken or turkey",
+                        "up to 1 c milk",
+                        "2 c rice",
+                        "8 c. crushed Rice Chex cereal",
+                        "½ c. melted butter"
+                    ],
+                    "procedure": "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with:\n8 c. crushed Rice Chex cereal\n½ c. melted butter\nBake at 350° F for 1 hour uncovered."
+                },
+                {
+                    "name": "Super Mega Tasty Food",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                }
+            ]
+        },
+        {
+            "category": "lunch",
+            "recipes": [
+                {
+                    "name": "Super Mega Tasty Dessert",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Breakfast",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Lunch",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Meat",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                }
+            ]
+        },
+        {
+            "category": "dessert",
+            "recipes": [
+                {
+                    "name": "Super Mega Tasty Tacos",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Burritos",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Meal",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                },
+                {
+                    "name": "Super Mega Tasty Recipe",
+                    "author": "Some Person",
+                    "ingredient_list": [
+                        "ingredient_1",
+                        "ingredient_5",
+                        "ingredient_4",
+                        "ingredient_3",
+                        "ingredient_2"
+                    ],
+                    "ingredients": [
+                        "qty 1 item 1",
+                        "qty 1 item 2",
+                        "qty 1 item 3",
+                        "qty 1 item 4",
+                        "qty 1 item 5",
+                        "qty 1 item 6",
+                        "qty 1 item 7",
+                        "qty 1 item 8",
+                        "qty 1 item 9",
+                        "qty 1 item 10"
+                    ],
+                    "procedure": "Do this and that and the other"
+                }
+            ]
         }
     ]
 }
