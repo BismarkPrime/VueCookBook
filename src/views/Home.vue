@@ -3,18 +3,18 @@
     <div class="wrapper">
       <div class="search">
         <form class="pure-form">
-          <i class="fas fa-hamburger"></i
-          ><input v-model="searchText" placeholder="Search by Recipe" />
+          <i class="fas fa-hamburger"></i>
+          <input v-model="searchText" placeholder="Search by Recipe" />
         </form>
       </div>
       <div class="search">
         <form class="pure-form">
-          <i class="fas fa-carrot"></i
-          ><input v-model="searchText" placeholder="Search by Ingredient" />
+          <i class="fas fa-carrot"></i>
+          <input v-model="searchText" placeholder="Search by Ingredient" />
         </form>
       </div>
     </div>
-    <ProductList :products="products" />
+    <ProductList :recipes="recipes" />
   </div>
 </template>
 
@@ -31,10 +31,13 @@ export default {
       searchText: "",
     };
   },
+
+
+
   computed: {
-    products() {
-      return this.$root.$data.products.filter(
-        (product) => product.name.toLowerCase().search(this.searchText) >= 0
+    recipes() {
+      return this.$root.$data.recipeList.filter(
+        (recipe) => recipe.name.toLowerCase().search(this.searchText) >= 0
       );
     },
   },

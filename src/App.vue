@@ -33,6 +33,15 @@
 export default {
   name: "App",
 
+  created() {
+    for (let section of this.$root.$data.cookBook) {
+      for (let recipe of section.recipes) {
+        this.$root.$data.recipeList.push(recipe);
+        this.$root.$data.cart.push({ recipe: recipe, count: 0 });
+      }
+    }
+  },
+
   computed: {
     cartCount() {
       return this.$root.$data.cart.reduce((total, current) => {

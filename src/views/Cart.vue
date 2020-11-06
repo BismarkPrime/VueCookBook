@@ -7,20 +7,20 @@
       </div>
 
       <div class="products">
-        <div class="product" v-for="product in visibleCart" :key="product.id">
+        <div class="product" v-for="recipeItem in visibleCart" :key="recipeItem.recipe.id">
           <div class="info">
-            <h1>{{ product.product.name }}</h1>
-            <h4>{{ "(" + product.product.price + " each)" }}</h4>
+            <h1>{{ recipeItem.recipe.name }}</h1>
+            <h4>{{ "(" + recipeItem.recipe.price + " each)" }}</h4>
           </div>
           <div class="image">
-            <img :src="'/images/products/' + product.product.image" />
+            <img :src="recipeItem.recipe.img" />
           </div>
           <div class="price">
             <div>
-              <h3>{{ "Qty: " + product.count }}</h3>
+              <h3>{{ "Qty: " + recipeItem.count }}</h3>
             </div>
 
-            <button class="auto" @click="removeFromCart(product)">
+            <button class="auto" @click="removeFromCart(recipeItem)">
               Remove from Cart
             </button>
           </div>
@@ -36,15 +36,15 @@ export default {
 
   computed: {
     visibleCart() {
-      return this.$root.$data.cart.filter((item) => {
-        return item.count;
+      return this.$root.$data.cart.filter((recipe) => {
+        return recipe.count;
       });
     },
   },
   methods: {
-    removeFromCart(product) {
-      this.$root.$data.cart.find((item) => {
-        return item == product;
+    removeFromCart(currentRecipe) {
+      this.$root.$data.cart.find((recipe) => {
+        return recipe == currentRecipe;
       }).count--;
     },
   },
