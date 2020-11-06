@@ -4,10 +4,11 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import mock from './mock-data.js'
+import recipeDB from './cook-book.json'
 
 let data = {
-  products: mock,
+  cookBook: recipeDB,
+  recipeList : [],
   cart: []
 }
 

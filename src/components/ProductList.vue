@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
     <div class="products">
-      <div class="product" v-for="product in products" :key="product.id">
+      <div class="product" v-for="recipe in recipes" :key="recipe.id">
         <div class="info">
-          <h1>{{ product.name }}</h1>
-          <p>{{ product.country }}</p>
+          <h1>{{ recipe.name }}</h1>
+          <p>{{ recipe.country }}</p>
         </div>
         <div class="image">
-          <img :src="'/images/products/' + product.image" />
+          <img :src="recipe.img" />
         </div>
         <div class="price">
-          <h2>{{ product.price }}</h2>
-          <button class="auto" @click="addToCart(product)">Add to Cart</button>
+          <h2>{{ recipe.price }}</h2>
+          <button class="auto" @click="addToCart(recipe)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -22,27 +22,28 @@
 export default {
   name: "ProductList",
   props: {
-    products: Array,
+    recipes: Array,
   },
 
   created() {
-    if (!this.$root.$data.cart.length) {
-      for (let product of this.products) {
-        this.$root.$data.cart.push({ product: product, count: 0 });
-      }
-    }
+    // if (!this.$root.$data.cart.length) {
+    //   for (let recipe of this.recipes) {
+    //     this.$root.$data.cart.push({ recipe: recipe, count: 0 });
+    //   }
+    // }
   },
 
   methods: {
-    addToCart(currentProduct) {
-      if (!this.$root.$data.cart.length) {
-        for (let product of this.products) {
-          this.$root.$data.cart.push({ product: product, count: 0 });
-        }
-      }
+    addToCart(currentRecipe) {
+      // if (!this.$root.$data.cart.length) {
+      //   for (let recipe of this.recipes) {
+      //     this.$root.$data.cart.push({ product: recipe, count: 0 });
+      //   }
+      // }
       //let i = this.$root.$data.cart.indexOf(
-        this.$root.$data.cart.find((item) => {
-          return item.product == currentProduct;
+        console.log(this.$root.$data.cart.length);
+        this.$root.$data.cart.find((recipeObject) => {
+          return recipeObject.recipe == currentRecipe;
         }).count++;
       //);
       //this.$root.$data.cart[i].count++;

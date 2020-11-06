@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     products() {
-      return this.$root.$data.products.filter(product => product.country === this.country);
+      return this.$root.$data.cookBook.filter(product => product.country === this.country);
     }
   },
   methods: {
