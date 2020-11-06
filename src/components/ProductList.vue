@@ -2,14 +2,31 @@
   <div class="wrapper">
     <div class="products">
       <div class="product" v-for="recipe in recipes" :key="recipe.id">
-        <div class="info">
-          <h1>{{ recipe.name }}</h1>
-          <p>{{ recipe.country }}</p>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle long-btn"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <div class="info1">
+              <h1>{{ recipe.name }}</h1>
+              <p>{{ recipe.country }}</p>
+              <div class="image">
+                <img :src="recipe.img" />
+              </div>
+            </div>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#"></a>
+          </div>
         </div>
-        <div class="image">
-          <img :src="recipe.img" />
-        </div>
-        <div class="price">
+
+        <div class="price" id="collapseExample">
           <h2>{{ recipe.price }}</h2>
           <button class="auto" @click="addToCart(recipe)">Add to Cart</button>
         </div>
@@ -41,10 +58,10 @@ export default {
       //   }
       // }
       //let i = this.$root.$data.cart.indexOf(
-        console.log(this.$root.$data.cart.length);
-        this.$root.$data.cart.find((recipeObject) => {
-          return recipeObject.recipe == currentRecipe;
-        }).count++;
+      console.log(this.$root.$data.cart.length);
+      this.$root.$data.cart.find((recipeObject) => {
+        return recipeObject.recipe == currentRecipe;
+      }).count++;
       //);
       //this.$root.$data.cart[i].count++;
       //console.log(i);
@@ -63,7 +80,7 @@ export default {
 
 .products {
   margin-top: 20px;
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   justify-content: space-around;
 }
@@ -71,13 +88,12 @@ export default {
 .product {
   margin: 10px;
   margin-top: 50px;
-  width: 200px;
 }
 
 .product img {
   border: 2px solid #333;
-  height: 250px;
-  width: 200px;
+  height: 50px;
+  width: 40px;
   object-fit: cover;
 }
 
@@ -85,6 +101,8 @@ export default {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
+}
+.info1 {
 }
 
 .info {
@@ -106,12 +124,15 @@ export default {
   margin: 0px;
   font-size: 10px;
 }
-
 .price {
   display: flex;
 }
-
-button {
+.long-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.auto {
   height: 50px;
   background: #000;
   color: white;
