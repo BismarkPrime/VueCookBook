@@ -12,7 +12,7 @@
           <i class="fas fa-carrot"></i>
           <input
             v-model="ingredientQuery"
-            placeholder="Search by Ingredient (comma delimited)"
+            :placeholder="'Search by Ingredient (comma delimited)'"
           />
         </form>
       </div>
@@ -46,8 +46,8 @@ export default {
         if (ingredientQuery.trim().length) {
           filteredRecipes = filteredRecipes.filter((recipe) => {
             for (let ingredient of recipe.ingredient_list) {
-              if(ingredient.search(ingredientQuery.trim()) >= 0) {
-                console.log(recipe.name.replace(/\s+/g, ''));
+              if (ingredient.search(ingredientQuery.trim()) >= 0) {
+                console.log(recipe.name.replace(/\s+/g, ""));
                 return true;
               }
             }
