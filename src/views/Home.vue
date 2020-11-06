@@ -4,13 +4,16 @@
       <div class="search">
         <form class="pure-form">
           <i class="fas fa-hamburger"></i>
-          <input v-model="searchText" placeholder="Search by Recipe" />
+          <input v-model="recipeQuery" placeholder="Search by Recipe" />
         </form>
       </div>
       <div class="search">
         <form class="pure-form">
           <i class="fas fa-carrot"></i>
-          <input v-model="searchText" placeholder="Search by Ingredient" />
+          <input
+            v-model="ingredientQuery"
+            placeholder="Search by Ingredient (comma delimited)"
+          />
         </form>
       </div>
     </div>
@@ -28,17 +31,31 @@ export default {
   data() {
     return {
       currentProducts: [],
-      searchText: "",
+      recipeQuery: "",
+      ingredientQuery: "",
     };
   },
 
-
-
   computed: {
     recipes() {
-      return this.$root.$data.recipeList.filter(
-        (recipe) => recipe.name.toLowerCase().search(this.searchText) >= 0
+      let filteredRecipes = this.$root.$data.recipeList.filter(
+        (recipe) => recipe.name.toLowerCase().search(this.recipeQuery) >= 0
       );
+      let ingredientQueryList = this.ingredientQuery.split(",");
+      for (let ingredientQuery of ingredientQueryList) {
+        if (ingredientQuery.trim().length) {
+          filteredRecipes = filteredRecipes.filter((recipe) => {
+            for (let ingredient of recipe.ingredient_list) {
+              if(ingredient.search(ingredientQuery.trim()) >= 0) {
+                console.log(ingredient);
+                return true;
+              }
+            }
+            return false;
+          });
+        }
+      }
+      return filteredRecipes;
     },
   },
   methods: {

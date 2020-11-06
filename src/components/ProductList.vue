@@ -70,8 +70,6 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
-}
 .dropdown {
   display: flex;
   justify-content: left;

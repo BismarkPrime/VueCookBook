@@ -34,8 +34,10 @@ export default {
   name: "App",
 
   created() {
+    let i = 0;
     for (let section of this.$root.$data.cookBook) {
       for (let recipe of section.recipes) {
+        recipe.id = i++;
         this.$root.$data.recipeList.push(recipe);
         this.$root.$data.cart.push({ recipe: recipe, count: 0 });
       }
