@@ -72,7 +72,7 @@ h1 {
 }
 
 .info {
-  background: #1a9af0;
+  /* background: #1a9af0; */
   color: #000;
   padding: 10px 30px;
   height: 80px;
