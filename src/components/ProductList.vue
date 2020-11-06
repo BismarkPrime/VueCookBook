@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="product" v-for="recipe in recipes" :key="recipe.name.replace(/\s+/g, '')">
       <div class="row">
         <div class="recipe-wrapper">
@@ -26,10 +26,10 @@
           <div class="collapse row" :id="recipe.name.replace(/\s+/g, '') + '_collapsable'">
             <div class="recipe-details">
               <h2>Ingredients</h2>
-              <div class="container">
+              <div class="container-fluid">
                 <div class="row">
                   <div
-                    class="col-sm-6 col-lg-4"
+                    class="col-md-6 col-lg-4"
                     v-for="(ingredient, index) in recipe.ingredients"
                     :key="index"
                   >
@@ -41,7 +41,7 @@
               </div>
               <hr />
               <h2>Procedure</h2>
-              <p>
+              <p class="procedure">
                 {{ recipe.procedure }}
               </p>
             </div>
@@ -102,6 +102,15 @@ export default {
 </script>
 
 <style scoped>
+
+.container-fluid > .product {
+  widows: 100%;
+}
+
+.container-fluid > .product > .row {
+    widows: 100%;
+}
+
 .recipe-wrapper {
   width: 100%;
   padding: 0 !important;
@@ -149,7 +158,7 @@ ul > li {
 
 .product {
   margin: 10px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -171,6 +180,11 @@ ul > li {
 }
 .info1 {
   font-size: 12px;
+}
+
+.info1 > p {
+  text-align: justify;
+  margin-left: 1rem;
 }
 
 .price {
@@ -198,5 +212,10 @@ ul > li {
 
 .auto {
   margin-left: auto;
+}
+
+.procedure {
+  white-space: pre-wrap;
+  text-align: justify;
 }
 </style>

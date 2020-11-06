@@ -23,8 +23,8 @@
     </div>
     <router-view />
       <footer>
-      &copy; 2020 Peter Seely -
-      <span><a href=https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-BismarkPrime>View Github Source</a></span>
+      &copy; 2020 Peter Seely &amp; Adam Johnson -
+      <span><a href="https://github.com/BismarkPrime/VueCookBook">View Github Source</a></span>
   </footer>
   </div>
 </template>
@@ -71,7 +71,7 @@ html {
   width: 100%;
 }
 body {
-  margin: 50px 100px;
+  margin: 40px 30px;
 }
 
 #menu {

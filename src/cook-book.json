@@ -1,6 +1,6 @@
 [
     {
-        "category": "breakfast",
+        "category": "Main Dishes",
         "recipes": [
             {
                 "name": "Chicken and Rice Casserole",
@@ -29,262 +29,125 @@
                     "5 c chicken or turkey",
                     "up to 1 c milk",
                     "2 c rice",
-                    "8 c. crushed Rice Chex cereal",
-                    "½ c. melted butter"
+                    "8 c crushed Rice Chex cereal",
+                    "½ c melted butter"
                 ],
-                "procedure": "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with: 8 c. crushed Rice Chex cereal  and ½ c. melted butter. Bake at 350° F for 1 hour uncovered."
+                "procedure": "\tPlace rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with: 8 c. crushed Rice Chex cereal  and ½ c. melted butter. Bake at 350° F for 1 hour uncovered."
             },
             {
-                "name": "Super Mega Tasty Food",
-                "author": "Some Person",
+                "name": "Chicken Divan",
+                "author": "Ruth Johnson",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
                 "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
+                    "broccoli",
+                    "lemon juice",
+                    "chicken",
+                    "cream of chicken soup",
+                    "mayonnaise",
+                    "salad dressing",
+                    "cheese",
+                    "bread crumbs",
+                    "butter"
                 ],
                 "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
+                    "20 oz broccoli",
+                    "1 TBSP lemon juice",
+                    "2 c sliced, cooked chicken",
+                    "2 10½ oz cans cream of chicken soup",
+                    "¾ c mayonnaise or salad dressing",
+                    "½ c shredded cheese",
+                    "1 c soft bread crumbs",
+                    "1 TBSP butter, melted"
                 ],
-                "procedure": "Do this and that and the other"
-            }
-        ]
-    },
-    {
-        "category": "lunch",
-        "recipes": [
-            {
-                "name": "Super Mega Tasty Dessert",
-                "author": "Some Person",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
-                ],
-                "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
-                ],
-                "procedure": "Do this and that and the other"
+                "procedure": "\tCook broccoli until tender, drain.  Arrange in greased 12x7½x2-inch glass baking dish.  Layer chicken atop.  Combine next 3 ingredients and pour over chicken.  Sprinkle with cheese.  Combine crumbs and butter.  Sprinkle over all.  Bake at 350° F about 35 minutes or until heated through."
             },
             {
-                "name": "Super Mega Tasty Breakfast",
-                "author": "Some Person",
+                "name": "Chicken Enchiladas",
+                "author": "Merrily Seely",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
                 "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
+                    "chicken",
+                    "cream of chicken soup",
+                    "sour cream",
+                    "tortillas",
+                    "mozzarella cheese"
                 ],
                 "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
+                    "2 c shredded chicken",
+                    "1 can cream of chicken soup",
+                    "1 c sour cream",
+                    "6 flour tortillas",
+                    "mozzarella cheese (as much as is desired)"
                 ],
-                "procedure": "Do this and that and the other"
+                "procedure": "\tCook and shred 2 c chicken.  Mix 1 can cream of cream of chicken soup and 1 c sour cream.  Coat 6 flour tortillas with soup mixture.  Divide chicken between flour tortillas, adding mozzarella cheese.  Roll and place in 9”x13” pan.  Drizzle remaining sauce over top.  Top with mozzarella cheese.  Cook 30 minutes at 350° F."
             },
             {
-                "name": "Super Mega Tasty Lunch",
-                "author": "Some Person",
+                "name": "Lemon Chicken",
+                "author": "Merrily Seely",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
                 "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
+                    "chicken",
+                    "sugar",
+                    "lemon juice",
+                    "catsup",
+                    "ketchup",
+                    "vinegar",
+                    "water",
+                    "cornstarch"
                 ],
                 "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
+                    "4 skinless chicken breasts or 8 thighs",
+                    "½ c sugar",
+                    "¼ c brown sugar",
+                    "¾ c lemon juice",
+                    "⅜ c catsup",
+                    "2 TBSP vinegar",
+                    "¼ c cold water",
+                    "¼ c  cornstarch"
                 ],
-                "procedure": "Do this and that and the other"
+                "procedure": "\t4 skinless breasts or 8 thighs or any equivalent amount of chicken.  Place chicken in crock pot.  Cover with sauce:\n½ c sugar\t ¼ c brown sugar\n¾ c lemon juice\t ⅜ c catsup\n2 TBSP vinegar\nCover & cook in crock pot 3-4 hours on high or 6-8 hours on low heat.  Blend:\n¼ c cold water\t¼ c  cornstarch\nMix with cooked liquid in saucepan until thick and bubbly.  Serve with chicken over rice."
             },
             {
-                "name": "Super Mega Tasty Meat",
-                "author": "Some Person",
+                "name": "Lemon Chicken Skillet Dinner",
+                "author": "Our Best Bites",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
                 "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
+                    "potatoes",
+                    "mushrooms",
+                    "olive oil",
+                    "garlic",
+                    "chicken breast",
+                    "milk",
+                    "salt",
+                    "flour",
+                    "pepper",
+                    "thyme leaves",
+                    "chicken broth",
+                    "French green beans"
                 ],
                 "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
+                    "12 oz baby red potatoes, halved",
+                    "4 oz mushrooms, sliced or quartered",
+                    "1 TBSP olive oil, divided",
+                    "2-3 cloves minced garlic",
+                    "chicken breast halves",
+                    "¼ c whole milk",
+                    "¾ tsp kosher salt, divided",
+                    "5 tsp flour",
+                    "½ tsp ground black pepper, divided",
+                    "1 tsp dried thyme leaves",
+                    "1 can low-sodium chicken broth- divided",
+                    "8 oz trimmed French green beans"
                 ],
-                "procedure": "Do this and that and the other"
-            }
-        ]
-    },
-    {
-        "category": "dessert",
-        "recipes": [
-            {
-                "name": "Super Mega Tasty Tacos",
-                "author": "Some Person",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
-                ],
-                "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
-                ],
-                "procedure": "Do this and that and the other"
+                "procedure": "\tPreheat oven to 450° F.  Place potatoes in a medium saucepan; cover with water. Bring to a boil, and simmer 12 minutes or until tender. Drain.  Line a baking sheet with foil and set aside.  Heat a large skillet over medium-high heat. Add 1 tsp oil to pan. Sprinkle chicken lightly with salt and pepper. Add chicken to pan; cook 5 minutes or until chicken is browned. Turn chicken over and cook for 1 minute.  Transfer chicken to foil-lined pan and place in oven for 10 minutes or until chicken is done.  While chicken is cooking, add remaining 2 tsp oil to skillet. Add potatoes, cut sides down to one side of the skillet, and the mushrooms and garlic to the other. Cook for 3-5 minutes or until browned, stirring mushrooms and garlic.  Remove vegetables from pan and set on a plate to the side.\n\tCombine milk and flour in a small bowl, stirring with a whisk.  Add flour mixture and 3/4 cup of the chicken broth along with a sprinkle of salt and pepper to the skillet and whisk until smooth.  Bring sauce to a simmer, and add beans.  Simmer 2-3 minutes or until sauce starts to thicken. Add lemon slices, potatoes and mushrooms, and chicken.  If sauce is too thick, add small amounts of chicken broth to thin.  Reduce heat and simmer 3-4 minutes or until beans are crisp-tender. Season with additional salt and pepper to taste."
             },
             {
-                "name": "Super Mega Tasty Burritos",
-                "author": "Some Person",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
-                ],
-                "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
-                ],
-                "procedure": "Do this and that and the other"
-            },
-            {
-                "name": "Super Mega Tasty Meal",
-                "author": "Some Person",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
-                ],
-                "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
-                ],
-                "procedure": "Do this and that and the other"
-            },
-            {
-                "name": "Super Mega Tasty Recipe",
-                "author": "Some Person",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "ingredient_list": [
-                    "ingredient_1",
-                    "ingredient_5",
-                    "ingredient_4",
-                    "ingredient_3",
-                    "ingredient_2"
-                ],
-                "ingredients": [
-                    "qty 1 item 1",
-                    "qty 1 item 2",
-                    "qty 1 item 3",
-                    "qty 1 item 4",
-                    "qty 1 item 5",
-                    "qty 1 item 6",
-                    "qty 1 item 7",
-                    "qty 1 item 8",
-                    "qty 1 item 9",
-                    "qty 1 item 10"
-                ],
-                "procedure": "Do this and that and the other"
-            }
-        ]
-    },
-    {
-        "category": "Midnight Snacks",
-        "recipes":[
-            {
-                "name": "Banana",
-                "author": "Peter Seely",
-                "img": "https://live.staticflickr.com/1802/43210556982_3e1461079f_b.jpg",
-                "ingredient_list": [
-                    "banana"
-                ],
-                "ingredients":[
-                    "1 Banana"
-                ],
-                "procedure": "If you need instructions on how to eat a banana, you are probably doing it wrong."
+                "name": "",
+                "author": "",
+                "img": "",
+                "ingredient_list": [],
+                "ingredients": [],
+                "procedure": "\t"
             }
         ]
     }
