@@ -107,6 +107,8 @@ export default {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin: 0 0 !important;
   /* padding: 0 0 !important; */
@@ -128,7 +130,7 @@ export default {
 
 .dropdown {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   width: 100%;
 }
 
@@ -155,7 +157,7 @@ export default {
 
 .product .image {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   margin-bottom: 5px;
 }
 .info1 h1 {
@@ -174,7 +176,7 @@ export default {
 }
 .left-align {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 .box {
   display: flex;  
