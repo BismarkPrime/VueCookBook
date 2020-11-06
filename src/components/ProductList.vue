@@ -1,16 +1,15 @@
 <template>
   <div class="wrapper">
-    <div class="products">
           <div class="product" v-for="product in products" :key="product.id">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle long-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="info1">
-                  <h1>{{ product.name }}</h1>
-                  <p>{{ product.country }}</p>
                 <div class="image">
                   <img :src="'/images/products/' + product.image" />
                 </div>
-              </div>
+                <div class="info1">
+                  <h1>{{ product.name }}</h1>
+                  <p>{{ product.country }}</p>
+                </div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#"></a>
@@ -24,7 +23,6 @@
                 <button class="auto" @click="addToCart(product)">Add to Cart</button>
               </div>
           </div>
-    </div>
   </div>
 </template>
 
@@ -65,9 +63,11 @@ export default {
 
 <style scoped>
 .wrapper {
+}
+.dropdown {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
+  width: 100%;
 }
 
 .products {
@@ -80,49 +80,37 @@ export default {
 .product {
   margin: 10px;
   margin-top: 50px;
+  width: 100%;
 }
 
 .product img {
   border: 2px solid #333;
   height: 50px;
   width: 40px;
+  margin: 5px;
   object-fit: cover;
 }
 
 .product .image {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 5px;
 }
-.info1 {
-}
-
-.info {
-  background: #f2921d;
-  color: #000;
-  padding: 10px 30px;
-  height: 80px;
-}
-
-.info h1 {
+.info1 h1 {
   font-size: 16px;
 }
-
-.info h2 {
-  font-size: 14px;
+.info1 {
+  font-size: 12px;
 }
 
-.info p {
-  margin: 0px;
-  font-size: 10px;
-}
 .price {
   display: flex;
 }
 .long-btn {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
+  min-width: 150px;
 }
 .auto {
   height: 50px;
