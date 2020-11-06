@@ -22,7 +22,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">
-            <h2>Ingredients</h2>
+            <h3>Ingredients</h3>
             <hr>
             <div class="container">
               <div class="row">
@@ -40,10 +40,11 @@
             </div>
           </a>
           <a class="dropdown-item" href="#">
-            <h2>Procedure</h2>
-            <p>
-              {{ recipe.procedure }}
-            </p>
+            <h3>Procedure</h3>
+            <hr>
+            <div class="box">
+              <p>{{ recipe.procedure }}</p>
+            </div>
           </a>
         </div>
       </div>
@@ -142,6 +143,11 @@ export default {
 .left-align {
   display: flex;
   justify-content: left;
+}
+.box {
+  display: flex;  
+  flex-wrap: wrap;
+  width: 10px;
 }
 .auto {
   height: 50px;

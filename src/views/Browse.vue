@@ -2,37 +2,59 @@
 <div>
   <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-menu-list">
-      <li class="pure-menu-item"><a @click="select('United States')" href="#" class="pure-menu-link">United States</a></li>
-      <li class="pure-menu-item"><a @click="select('Canada')" href="#" class="pure-menu-link">Canada</a></li>
-      <li class="pure-menu-item"><a @click="select('Mexico')" href="#" class="pure-menu-link">Mexico</a></li>
-      <li class="pure-menu-item"><a @click="select('Brazil')" href="#" class="pure-menu-link">Brazil</a></li>
+        <div
+          v-for="(selection, index) in this.$root.$data.cookBook"
+          :key="index" class="pure-menu-item"
+        >
+        <li class="pure-menu-item" style="text-transform: capitalize;"><a @click="select(selection.category)" href="#" class="pure-menu-link">{{selection.category}}</a></li>
+        </div>
     </ul>
   </div>
-  <ProductList :products="products" />
+  <ProductList :recipes="recipes" />
 </div>
 </template>
 
 <script>
-import ProductList from "../components/ProductList.vue"
+import ProductList from "../components/ProductList.vue";
 export default {
-  name: 'Browse',
+  name: "Browse",
   components: {
-    ProductList
+    ProductList,
   },
   data() {
     return {
-      country: '',
-    }
+      category: "",
+    };
   },
   computed: {
-    products() {
-      return this.$root.$data.cookBook.filter(product => product.country === this.country);
-    }
+    recipes() {
+      //console.log(this.category);
+      for (let section of this.$root.$data.cookBook) {
+        console.log("Comparing next two");
+        console.log(section.category);
+        console.log(this.category);
+        if (section.category == this.category) {
+          console.log(section.recipes);
+          console.log("success");
+          return section.recipes;
+        }
+      }
+      console.log("returned nothing");
+      return [];
+      // return this.$root.$data.cookBook.filter(
+      //   (section) => section.category === this.category
+      // ).at(0).recipes;
+    },
+    products_old() {
+      return this.$root.$data.cookBook.filter(
+        (product) => product.category === this.category
+      );
+    },
   },
   methods: {
-    select(country) {
-      this.country = country;
-    }
-  }
-}
+    select(category) {
+      this.category = category;
+    },
+  },
+};
 </script>
