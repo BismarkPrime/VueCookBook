@@ -1,28 +1,35 @@
 <template>
   <div class="wrapper">
-          <div class="product" v-for="product in products" :key="product.id">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle long-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="image">
-                  <img :src="'/images/products/' + product.image" />
-                </div>
-                <div class="info1">
-                  <h1>{{ product.name }}</h1>
-                  <p>{{ product.country }}</p>
-                </div>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#"></a>
-                  <a class="dropdown-item" href="#"></a>
-                  <a class="dropdown-item" href="#"></a>
-                </div>
-              </div>
-
-              <div class="price" id="collapseExample">
-                <h2>{{ product.price }}</h2>
-                <button class="auto" @click="addToCart(product)">Add to Cart</button>
-              </div>
+    <div class="product" v-for="product in products" :key="product.id">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle long-btn"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <div class="image">
+            <img :src="'/images/products/' + product.image" />
           </div>
+          <div class="info1">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.country }}</p>
+          </div>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#"></a>
+        </div>
+      </div>
+
+      <div class="price" id="collapseExample">
+        <h2>{{ product.price }}</h2>
+        <button class="auto" @click="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,9 +56,9 @@ export default {
         }
       }
       //let i = this.$root.$data.cart.indexOf(
-        this.$root.$data.cart.find((item) => {
-          return item.product == currentProduct;
-        }).count++;
+      this.$root.$data.cart.find((item) => {
+        return item.product == currentProduct;
+      }).count++;
       //);
       //this.$root.$data.cart[i].count++;
       //console.log(i);
