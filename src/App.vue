@@ -65,9 +65,12 @@ html {
   padding-bottom: 2em;
 }
 
-body {
-  margin: 50px 100px;
+#app {
+  width: 100%;
 }
+/* body {
+  margin: 50px 100px;
+} */
 
 #menu {
   display: grid;

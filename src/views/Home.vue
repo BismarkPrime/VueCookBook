@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="center-content">
     <div class="wrapper">
       <div class="search">
         <form class="pure-form">
@@ -70,6 +70,10 @@ export default {
 </script>
 
 <style scoped>
+.center-content {
+  text-align: center;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
