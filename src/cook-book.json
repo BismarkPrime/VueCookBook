@@ -142,12 +142,23 @@
                 "procedure": "\tPreheat oven to 450° F.  Place potatoes in a medium saucepan; cover with water. Bring to a boil, and simmer 12 minutes or until tender. Drain.  Line a baking sheet with foil and set aside.  Heat a large skillet over medium-high heat. Add 1 tsp oil to pan. Sprinkle chicken lightly with salt and pepper. Add chicken to pan; cook 5 minutes or until chicken is browned. Turn chicken over and cook for 1 minute.  Transfer chicken to foil-lined pan and place in oven for 10 minutes or until chicken is done.  While chicken is cooking, add remaining 2 tsp oil to skillet. Add potatoes, cut sides down to one side of the skillet, and the mushrooms and garlic to the other. Cook for 3-5 minutes or until browned, stirring mushrooms and garlic.  Remove vegetables from pan and set on a plate to the side.\n\tCombine milk and flour in a small bowl, stirring with a whisk.  Add flour mixture and 3/4 cup of the chicken broth along with a sprinkle of salt and pepper to the skillet and whisk until smooth.  Bring sauce to a simmer, and add beans.  Simmer 2-3 minutes or until sauce starts to thicken. Add lemon slices, potatoes and mushrooms, and chicken.  If sauce is too thick, add small amounts of chicken broth to thin.  Reduce heat and simmer 3-4 minutes or until beans are crisp-tender. Season with additional salt and pepper to taste."
             },
             {
-                "name": "",
-                "author": "",
-                "img": "",
-                "ingredient_list": [],
-                "ingredients": [],
-                "procedure": "\t"
+                "name": "“Rotisserie” Chicken",
+                "author": "Our Best Bites",
+                "img": "https://live.staticflickr.com/1/2860121_718d67736c_b.jpg",
+                "ingredient_list": [
+                    "chicken",
+                    "salt",
+                    "seasoning",
+                    "garlic",
+                    "herbs"
+                ],
+                "ingredients": [
+                    "1 whole chicken, small enough to fit in slow cooker",
+                    "Salt-based seasoning",
+                    "Whole garlic cloves, peeled",
+                    "Fresh herbs"
+                ],
+                "procedure": "\tMake 3 balls of aluminum foil and place them in the bottom of slow cooker. These hold the chicken off the bottom so the hot air can circulate all around the chicken and so it’s not stewing in its own juices.  Rinse chicken, including the cavity, and pat dry with paper towels. Place the chicken on its back so the breast is facing up and the legs are on the plate.  Pull the skin up all around the chicken. Slice a few garlic cloves in half lengthwise and stick them under the skin. You can also arrange a couple sprigs of fresh herbs like rosemary, thyme, and/or sage under the skin. This makes a very pretty chicken when it’s all cooked and adds a lot of flavor.\n\tRub salt-based seasoning VERY liberally onto the skin of the chicken. Place chicken breast-up on the foil in the slow cooker, cover, turn heat to low, and leave it alone for 7-8 hours"
             }
         ]
     },
@@ -459,7 +470,6 @@
                 ],
                 "procedure": "\tIn a medium saucepan, combine the butter and milk and cook over medium heat until the butter melts. Whisk in the flour and stir until the mixture pulls away from the sides into a glossy ball. Remove from heat. Add 1 egg to the mixture and stir with a wooden spoon until completely combined, then repeat with each egg, not moving onto the next egg until the previous egg is completely mixed. It may be on the thin side, more like a batter, but just let the dough just hang out for about 15-20 minutes (and even if it stays thin, it will work just fine.) You can also do this step using a stand mixer fitted with the paddle attachment.  Pour about 3″ of oil into a large skillet, pot, or Dutch Oven. Heat the oil over medium heat to 325 degrees F (use a candy or instant read thermometer to keep the temperature in check.)  Preheat oven to the lowest setting.\n\tWhile the oil is heating, whisk together the sugar, cinnamon, and salt (if desired) in a pie plate.  When the oil is almost ready, transfer the dough to a pastry bag fitted with a large star tip (like open 1M or larger). Squeeze about 3″ of dough into the hot oil and repeat, not crowding the pan (you’ll have to fry the churros in a few batches). Cook for about 3-4 minutes on one side or until golden brown, then flip and continue cooking another 2-3 minutes on the other side (or until the other side is also golden brown.) Transfer to a paper towel-lined plate and place the plate in the oven. Repeat frying until the dough is gone.  When all the churros have been cooked, toss them in the cinnamon-sugar mix and serve immediately. Makes about 24 3″ churros. If desired, serve with dark chocolate ganache for dipping."
             }
-
         ]
     },
     {
@@ -546,7 +556,7 @@
                     "sugar",
                     "pepper"
                 ],
-                "ingredients": [		
+                "ingredients": [
                     "2 c potatoes",
                     "1 c celery",
                     "20-25 oz canned clams",
