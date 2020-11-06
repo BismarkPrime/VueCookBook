@@ -10,18 +10,41 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <div class="image">
-            <img :src="recipe.img" />
-          </div>
-          <div class="info1">
-            <h1>{{ recipe.name }}</h1>
-            <p>{{ recipe.country }}</p>
+          <div class="left-align">
+            <div class="image">
+              <img :src="recipe.img" />
+            </div>
+            <div class="info1">
+              <h1>{{ recipe.name }}</h1>
+              <p>{{ recipe.country }}</p>
+            </div>
           </div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"></a>
-          <a class="dropdown-item" href="#"></a>
-          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#">
+            <h2>Ingredients</h2>
+            <hr>
+            <div class="container">
+              <div class="row">
+                <div
+                  v-for="(ingredient, index) in recipe.ingredients"
+                  :key="index"
+                >
+                  <div class="col-6-sm col-4-md col-3-lg">
+                    <ul>
+                      <li>{{ ingredient }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="dropdown-item" href="#">
+            <h2>Procedure</h2>
+            <p>
+              {{ recipe.procedure }}
+            </p>
+          </a>
         </div>
       </div>
 
@@ -115,10 +138,12 @@ export default {
   display: flex;
 }
 .long-btn {
-  display: flex;
-  justify-content: left;
   width: 100%;
   min-width: 150px;
+}
+.left-align {
+  display: flex;
+  justify-content: left;
 }
 .auto {
   height: 50px;
