@@ -163,7 +163,7 @@ ul > li {
 
 .product .image {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   margin-bottom: 5px;
 }
 .info1 h1 {
@@ -182,7 +182,7 @@ ul > li {
 }
 .left-align {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 .box {
   display: flex;
