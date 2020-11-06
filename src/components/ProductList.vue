@@ -176,6 +176,11 @@ export default {
   display: flex;
   justify-content: left;
 }
+.box {
+  display: flex;  
+  flex-wrap: wrap;
+  width: 10px;
+}
 .auto {
   height: 50px;
   background: #000;

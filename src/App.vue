@@ -8,14 +8,14 @@
       </div>
       <div id="side">
         <router-link to="/browse">
+          <i class="fas fa-utensils fa-4x"></i>
           <div class="menu-item browse">
-            <img src="/images/globe.png" />
-            <p>Browse</p>
+            <p> Filter</p>
           </div>
         </router-link>
         <router-link to="/cart">
+          <i class="fas fa-heart fa-4x"></i>
           <div class="menu-item">
-            <img src="/images/love.png" />
             <p>{{ cartCount }} items</p>
           </div>
         </router-link>
@@ -111,6 +111,9 @@ html {
 
 .menu-item p {
   margin: 0px;
+}
+a:link {
+  text-decoration: bold;
 }
 
 .browse {
