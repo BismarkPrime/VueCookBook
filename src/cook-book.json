@@ -32,7 +32,7 @@
                     "8 c. crushed Rice Chex cereal",
                     "½ c. melted butter"
                 ],
-                "procedure": "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with:\n8 c. crushed Rice Chex cereal\n½ c. melted butter\nBake at 350° F for 1 hour uncovered."
+                "procedure": "Place rice in large pot.  Add 4 c. water & 1 tsp. salt.  Bring to a boil.  Reduce heat to low.  Cook for 20 minutes.  Sauté onion in butter.  Cube chicken or turkey.  Mix all ingredients together, adding milk last as needed to moisten.  Place in a greased 9” X 13” casserole dish.  Top with: 8 c. crushed Rice Chex cereal  and ½ c. melted butter. Bake at 350° F for 1 hour uncovered."
             },
             {
                 "name": "Super Mega Tasty Food",
@@ -268,6 +268,23 @@
                     "qty 1 item 10"
                 ],
                 "procedure": "Do this and that and the other"
+            }
+        ]
+    },
+    {
+        "category": "Midnight Snacks",
+        "recipes":[
+            {
+                "name": "Banana",
+                "author": "Peter Seely",
+                "img": "https://live.staticflickr.com/1802/43210556982_3e1461079f_b.jpg",
+                "ingredient_list": [
+                    "banana"
+                ],
+                "ingredients":[
+                    "1 Banana"
+                ],
+                "procedure": "If you need instructions on how to eat a banana, you are probably doing it wrong."
             }
         ]
     }

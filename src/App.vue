@@ -3,20 +3,20 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="/images/logo.png" />
+          <img src="/images/digital-chef.png" />
         </router-link>
       </div>
       <div id="side">
         <router-link to="/browse">
           <i class="fas fa-utensils fa-4x"></i>
           <div class="menu-item browse">
-            <p> Filter</p>
+            <p>Filter</p>
           </div>
         </router-link>
         <router-link to="/cart">
           <i class="fas fa-heart fa-4x"></i>
           <div class="menu-item">
-            <p>{{ cartCount }} items</p>
+            <p>{{ cartCount + " recipe" + ((cartCount != 1) ? "s" : "") }} </p>
           </div>
         </router-link>
       </div>
@@ -34,21 +34,23 @@ export default {
   name: "App",
 
   created() {
-    let i = 0;
     for (let section of this.$root.$data.cookBook) {
       for (let recipe of section.recipes) {
-        recipe.id = i++;
+        recipe.favorite = false;
         this.$root.$data.recipeList.push(recipe);
-        this.$root.$data.cart.push({ recipe: recipe, count: 0 });
+        //this.$root.$data.cart.push({ recipe: recipe, count: 0 });
       }
     }
   },
 
   computed: {
     cartCount() {
-      return this.$root.$data.cart.reduce((total, current) => {
-        return total + current.count;
+      console.log("here");
+      let count = this.$root.$data.recipeList.reduce((total, current) => {
+        return total + current.favorite;
       }, 0);
+      console.log(count);
+      return count;
     },
   },
 };
@@ -68,9 +70,9 @@ html {
 #app {
   width: 100%;
 }
-/* body {
+body {
   margin: 50px 100px;
-} */
+}
 
 #menu {
   display: grid;
@@ -81,7 +83,15 @@ html {
 }
 
 #menu a {
-  color: #b84901;
+  color: #333;
+}
+
+#side i {
+  color: rgb(85, 85, 85);
+}
+
+#side i:hover {
+  color: #333;
 }
 
 #brand {
@@ -107,6 +117,8 @@ html {
 .menu-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-item p {
@@ -114,6 +126,10 @@ html {
 }
 a:link {
   text-decoration: bold;
+}
+
+router-link {
+  color: #333;
 }
 
 .browse {

@@ -1,43 +1,27 @@
 <template>
   <div>
-    <h1>Cart</h1>
+    <h1>Favorites</h1>
     <div class="wrapper">
-      <div v-if="!visibleCart.length" class="info">
-        <h1>Your cart is empty!</h1>
-      </div>
-
-      <div class="products">
-        <div class="product" v-for="recipeItem in visibleCart" :key="recipeItem.recipe.id">
-          <div class="info">
-            <h1>{{ recipeItem.recipe.name }}</h1>
-            <h4>{{ "(" + recipeItem.recipe.price + " each)" }}</h4>
-          </div>
-          <div class="image">
-            <img :src="recipeItem.recipe.img" />
-          </div>
-          <div class="price">
-            <div>
-              <h3>{{ "Qty: " + recipeItem.count }}</h3>
-            </div>
-
-            <button class="auto" @click="removeFromCart(recipeItem)">
-              Remove from Cart
-            </button>
-          </div>
-        </div>
+      <div v-if="!favoriteRecipes.length" class="info">
+        <h1>You don't have any favorite recipes!</h1>
       </div>
     </div>
+    <ProductList :recipes="favoriteRecipes" />
   </div>
 </template>
 
 <script>
+import ProductList from "../components/ProductList.vue";
 export default {
   name: "Cart",
+  components: {
+    ProductList,
+  },
 
   computed: {
-    visibleCart() {
-      return this.$root.$data.cart.filter((recipe) => {
-        return recipe.count;
+    favoriteRecipes() {
+      return this.$root.$data.recipeList.filter((recipe) => {
+        return recipe.favorite;
       });
     },
   },
@@ -45,7 +29,7 @@ export default {
     removeFromCart(currentRecipe) {
       this.$root.$data.cart.find((recipe) => {
         return recipe == currentRecipe;
-      }).count--;
+      }).favorite = false;
     },
   },
 };
@@ -59,7 +43,7 @@ export default {
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .products {

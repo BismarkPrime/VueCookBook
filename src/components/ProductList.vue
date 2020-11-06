@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="product" v-for="recipe in recipes" :key="recipe.id">
+    <div class="product" v-for="recipe in recipes" :key="recipe.name.replace(/\s+/g, '')">
       <div class="row">
         <div class="recipe-wrapper">
           <button
@@ -8,7 +8,7 @@
             type="button"
             id="dropdownMenuButton"
             data-toggle="collapse"
-            :data-target="'#' + recipe.name.replace(/\s+/g, '')"
+            :data-target="'#' + recipe.name.replace(/\s+/g, '') + '_collapsable'"
           >
             <div class="recipe-info">
               <div class="image">
@@ -19,28 +19,27 @@
                 <p>{{ "By " + recipe.author }}</p>
               </div>
             </div>
-            <div class="heart" @click="addToFavorites(recipe)">
-              <i :class="'fa fa-heart fa-2x'"></i>
+            <div class="heart" @click.stop="addToFavorites(recipe)">
+              <i :class="'fa' + (isFavorite(recipe.name) ? '' : 'r') + ' fa-heart fa-2x'"></i>
             </div>
           </button>
-          <div class="collapse row" :id="recipe.name.replace(/\s+/g, '')">
+          <div class="collapse row" :id="recipe.name.replace(/\s+/g, '') + '_collapsable'">
             <div class="recipe-details">
               <h2>Ingredients</h2>
-              <hr />
               <div class="container">
                 <div class="row">
                   <div
+                    class="col-sm-6 col-lg-4"
                     v-for="(ingredient, index) in recipe.ingredients"
                     :key="index"
                   >
-                    <div class="col-6-sm col-4-md col-3-lg">
-                      <ul>
-                        <li>{{ ingredient }}</li>
-                      </ul>
-                    </div>
+                    <ul>
+                      <li>{{ ingredient }}</li>
+                    </ul>
                   </div>
                 </div>
               </div>
+              <hr />
               <h2>Procedure</h2>
               <p>
                 {{ recipe.procedure }}
@@ -76,15 +75,28 @@ export default {
       //   }
       // }
       //let i = this.$root.$data.cart.indexOf(
-      console.log(this.$root.$data.cart.length);
-      this.$root.$data.cart.find((recipeObject) => {
-        return recipeObject.recipe == currentRecipe;
-      }).count++;
+
+      let recipeIndex = this.$root.$data.recipeList.findIndex((recipe) => {
+        return recipe == currentRecipe;
+      });
+      console.log(recipeIndex);
+      this.$root.$data.recipeList[recipeIndex].favorite = !this.$root.$data
+        .recipeList[recipeIndex].favorite;
+
+      this.$root.$data.recipeList.push({});
+      this.$root.$data.recipeList.length--;
+
       //);
       //this.$root.$data.cart[i].count++;
       //console.log(i);
       //console.log(this.$root.$data.cart[i]);
     },
+    isFavorite(recipeName) {
+      let index = this.$root.$data.recipeList.findIndex((recipe) => {
+        return recipe.name == recipeName;
+      });
+      return this.$root.$data.recipeList[index].favorite;
+    }
   },
 };
 </script>
@@ -95,7 +107,6 @@ export default {
   padding: 0 !important;
   border: 2px solid rgb(85, 85, 85);
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .inner-button {
@@ -121,6 +132,12 @@ export default {
 
 .recipe-details {
   position: relative;
+  padding: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+ul > li {
+  text-align: justify;
 }
 
 .products {
