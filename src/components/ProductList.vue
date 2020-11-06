@@ -103,16 +103,26 @@ export default {
 
 <style scoped>
 
+.container-fluid {
+  text-align: center;
+
+}
+
 .container-fluid > .product {
-  widows: 100%;
+  width: 100%;
+  text-align: justify;
+  margin: 30px 0;
 }
 
 .container-fluid > .product > .row {
-    widows: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 0 !important;
 }
 
 .recipe-wrapper {
   width: 100%;
+  text-align: center;
   padding: 0 !important;
   border: 2px solid rgb(85, 85, 85);
   border-radius: 10px;
@@ -177,6 +187,7 @@ ul > li {
 }
 .info1 h1 {
   font-size: 16px;
+  text-align: justify;
 }
 .info1 {
   font-size: 12px;
