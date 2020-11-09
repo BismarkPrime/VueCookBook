@@ -159,6 +159,114 @@
                     "Fresh herbs"
                 ],
                 "procedure": "\tMake 3 balls of aluminum foil and place them in the bottom of slow cooker. These hold the chicken off the bottom so the hot air can circulate all around the chicken and so it’s not stewing in its own juices.  Rinse chicken, including the cavity, and pat dry with paper towels. Place the chicken on its back so the breast is facing up and the legs are on the plate.  Pull the skin up all around the chicken. Slice a few garlic cloves in half lengthwise and stick them under the skin. You can also arrange a couple sprigs of fresh herbs like rosemary, thyme, and/or sage under the skin. This makes a very pretty chicken when it’s all cooked and adds a lot of flavor.\n\tRub salt-based seasoning VERY liberally onto the skin of the chicken. Place chicken breast-up on the foil in the slow cooker, cover, turn heat to low, and leave it alone for 7-8 hours"
+            },
+            {
+                "name": "Mushroom Stuffing",
+                "author": "Merrily Seely, based on Better Homes & Gardens",
+                "img": "https://live.staticflickr.com/1/515654_d474a8cbfb_b.jpg",
+                "ingredient_list": [
+                    "onion",
+                    "butter",
+                    "fresh mushrooms",
+                    "poultry seasoning",
+                    "salt",
+                    "pepper",
+                    "bread cubes",
+                    "chicken broth"
+                ],
+                "ingredients": [
+                    "½ c chopped onion",
+                    "½ c butter",
+                    "1 c sliced fresh mushrooms",
+                    "1 tsp poultry seasoning",
+                    "½ tsp salt (delete if using bullion)",
+                    "1/8 tsp pepper",
+                    "8 c dry bread cubes",
+                    "¾-1 c chicken broth"
+                ],
+                "procedure": "\tIn saucepan, cook onion and mushrooms in butter until tender.  Add seasoning.  Drizzle over bread cubes.  Lightly toss.  Add enough broth to just moisten.  Cook in greased dish 30 minutes at 325° F."
+            },
+            {
+                "name": "Beef Stroganoff",
+                "author": "Merrily Seely, Based on Joy of Cooking",
+                "img": "https://live.staticflickr.com/255/32007016811_518f9d7748_b.jpg",
+                "ingredient_list": [
+                    "fillet of beef",
+                    "onion",
+                    "butter",
+                    "mushrooms",
+                    "sour cream",
+                    "salt",
+                    "pepper"
+                ],
+                "ingredients": [
+                    "1 ½ lb fillet of beef",
+                    "¼ chopped onion",
+                    "2 TBSP butter",
+                    "¾ lb sliced mushrooms",
+                    "1 c sour cream",
+                    "salt",
+                    "pepper"
+                ],
+                "procedure": "\tCut into ½” slices across the grain\n\t\t1 ½ lb fillet of beef\n\tPound until thin.\n\tSauté ¼ chopped onion in 1 TBSP butter.  Add beef and sauté.  Remove. Add 1 TBSP butter and sauté ¾ lb sliced mushrooms.  Add beef and onion.  Season with salt and pepper. Add 1 c sour cream.  Heat through.  Serve over noodles."
+            },
+            {
+                "name": "Fajitas",
+                "author": "Merrily Seely",
+                "img": "https://live.staticflickr.com/255/32007016811_518f9d7748_b.jpg",
+                "ingredient_list": [
+                    "sliced steak",
+                    "oil",
+                    "garlic powder",
+                    "lime juice",
+                    "oregano",
+                    "water",
+                    "pepper",
+                    "green peppers",
+                    "onion"
+                ],
+                "ingredients": [
+                    "1 ¼ lbs sliced steak",
+                    "¼ c oil",
+                    "¾ tsp garlic powder",
+                    "⅓ c lime juice",
+                    "½ tsp oregano",
+                    "¼ c water",
+                    "⅛ tsp pepper",
+                    "2 green peppers",
+                    "1 onion (sliced thin)"
+                ],
+                "procedure": "\tMarinate 1 ¼ lbs sliced steak in\n\t¼ c oil\t\t¾ tsp garlic powder\n\t⅓ c lime juice\t\t½ tsp oregano\n\t¼ c water\t\t⅛ tsp pepper\n\tDrain meat.  Cook.  Add 2 green peppers and 1 onion (sliced thin), cooking until tender.  Serve with tortillas."
+            },
+            {
+                "name": "Ground Beef in Sour Cream",
+                "author": "Ruth Johnson",
+                "img": "https://live.staticflickr.com/255/32007016811_518f9d7748_b.jpg",
+                "ingredient_list": [
+                    "ground beef",
+                    "onion",
+                    "noodles",
+                    "tomato juice",
+                    "celery salt",
+                    "pepper",
+                    "Worcestershire sauce",
+                    "green pepper",
+                    "sour cream",
+                    "mushrooms"
+                ],
+                "ingredients": [
+                    "1 lbs ground beef",
+                    "1 c chopped onions",
+                    "3 c medium noodles",
+                    "3 c tomato juice",
+                    "1 tsp celery salt",
+                    "dash pepper",
+                    "2 tsp Worcestershire sauce",
+                    "¼ c chopped green pepper",
+                    "1 c sour cream",
+                    "3 oz can sliced mushrooms, drained"
+                ],
+                "procedure": "\tLightly brown 1 lb. ground beef in large skillet.  Add 1 c chopped onions; cook until tender but not brown.  Place 3 c medium noodles in layer over meat.  Combine 3 c tomato juice, 1 tsp salt, 1½ tsp celery salt, dash pepper, 2 tsp. Worcestershire sauce.  Pour over noodles.  Bring to boiling; cover and simmer over low heat 20 minutes.  (Add ¼ c chopped green pepper.)  Cover and continue cooking 10 minutes or until noodles are tender.  Stir in 1 c sour cream and one 3 oz can sliced mushrooms drained.  Heat just to boiling.  Season to taste."
             }
         ]
     },
