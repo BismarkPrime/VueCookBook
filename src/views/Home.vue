@@ -46,7 +46,7 @@ export default {
         if (ingredientQuery.trim().length) {
           filteredRecipes = filteredRecipes.filter((recipe) => {
             for (let ingredient of recipe.ingredients) {
-              if (ingredient.search(ingredientQuery.trim()) >= 0) {
+              if (ingredient.toLowerCase().search(ingredientQuery.toLowerCase().trim()) >= 0) {
                 return true;
               }
             }
