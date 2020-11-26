@@ -7,8 +7,8 @@
   </div>
   <div class="add">
     <div class="form">
-      <input v-model="title" placeholder="Title">
-      <p><textarea v-model="description" id="describer" name="Description"></textarea></p>
+      <input v-model="name" placeholder="Title">
+      <p><textarea v-model="procedure" id="describer" name="Description"></textarea></p>
       <input type="file" name="photo" @change="fileChanged">
       <button @click="upload">Upload</button>
     </div>
@@ -49,8 +49,8 @@ export default {
   name: 'Admin',
     data() {
     return {
-      title: "",
-      description: "",
+      name: "",
+      procedure: "",
       file: null,
       addItem: null,
       items: [],
@@ -80,15 +80,20 @@ export default {
     console.log(error);
   }
 },
+
     async upload() {
       try {
         const formData = new FormData();
         formData.append('photo', this.file, this.file.name)
         let r1 = await axios.post('/api/photos', formData);
         let r2 = await axios.post('/api/items', {
-          title: this.title,
-          description: this.description, //my code
-          path: r1.data.path
+          category: this.category,
+          name: this.name,
+          author: this.author,
+          //img: this.img, //my code
+          img: r1.data.img,
+          ingredients: this.ingredients,
+          procedure: this.procedure
         });
         this.addItem = r2.data;
       } catch (error) {
