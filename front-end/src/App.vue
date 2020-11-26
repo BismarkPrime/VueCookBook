@@ -42,34 +42,21 @@ export default {
 
   created() {
     for (let recipe of this.$root.$data.recipeList) {
+      recipe.favorite = false;
       let section = this.$root.$data.cookBook.find((section) => {
         return section.category == recipe.category;
       });
       if (section == undefined) {
         this.$root.$data.cookBook.push({
           category: recipe.category,
-          recipes: [
-            {
-              name: recipe.name,
-              author: recipe.author,
-              img: recipe.img,
-              ingredients: recipe.ingredients,
-              procedure: recipe.procedure,
-            },
-          ],
+          recipes: [recipe],
         });
       } else {
         this.$root.$data.cookBook[
           this.$root.$data.cookBook.findIndex((section) => {
             return section.category == recipe.category;
           })
-        ].recipes.push({
-          name: recipe.name,
-          author: recipe.author,
-          img: recipe.img,
-          ingredients: recipe.ingredients,
-          procedure: recipe.procedure,
-        });
+        ].recipes.push({recipe});
       }
     }
   },
