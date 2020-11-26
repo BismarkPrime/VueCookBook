@@ -1,10 +1,10 @@
 <template>
-<div class="admin">
-  <h1>The Admin Page!</h1>
-  <div class="heading">
-    <div class="circle">1</div>
-    <h2>Add an Item</h2>
-  </div>
+  <div class="admin">
+    <h1>The Admin Page!</h1>
+    <div class="heading">
+      <div class="circle">1</div>
+      <h2>Add an Item</h2>
+    </div>
     <div class="add">
       <div class="form">
         <input v-model="name" placeholder="Name" />
@@ -54,19 +54,31 @@
         </div>
       </div>
       <div class="upload" v-if="findItem">
-        <input v-model="findItem.name" />
+        <input v-model="findItem.name" placeholder="Name" />
+        <input v-model="findItem.category" placeholder="Category" />
+        <input v-model="findItem.author" placeholder="Author" />
+        <input v-model="findItem.img" placeholder="Img-link" />
         <p>
           <textarea
-            v-model="findItem.description"
-            id="describer2"
-            name="Description"
+            v-model="findItem.ingredients"
+            id="ingredients2"
+            name="Ingredients2"
+            placeholder="Ingredients"
+          ></textarea>
+        </p>
+        <p>
+          <textarea
+            v-model="findItem.procedure"
+            id="procedure2"
+            name="Procedure2"
+            placeholder="Procedure"
           ></textarea>
         </p>
         <img :src="findItem.img" />
       </div>
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
-        <button @click="editItem(findItem)">Edit</button>
+        <button @click="editItem(findItem)">Save Changes</button>
       </div>
     </div>
   </div>
@@ -128,7 +140,7 @@ export default {
           author: this.author,
           img: this.img, //r1.data.img,
           ingredients: this.ingredients.split(/\r?\n/),
-          procedure: this.procedure
+          procedure: this.procedure,
         });
         this.addItem = r2.data;
       } catch (error) {
@@ -148,12 +160,12 @@ export default {
     async editItem(item) {
       try {
         await axios.put("/api/items/" + item._id, {
-          category: this.category,
-          name: this.name,
-          author: this.author,
-          img: this.img, //r1.data.img,
-          ingredients: this.ingredients,
-          procedure: this.procedure,
+          category: this.findItem.category,
+          name: this.findItem.name,
+          author: this.findItem.author,
+          img: this.findItem.img, //r1.data.img,
+          ingredients: this.findItem.ingredients,
+          procedure: this.findItem.procedure,
         });
         this.findItem = null;
         this.getItems();
