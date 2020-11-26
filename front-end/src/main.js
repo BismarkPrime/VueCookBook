@@ -7,11 +7,11 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import recipeDB from './cook-book2.json'
+import recipeDB from './cook-book3.json'
 
 let data = {
-  cookBook: recipeDB,
-  recipeList : [],
+  cookBook: [],
+  recipeList: recipeDB,
   cart: []
 }
 
