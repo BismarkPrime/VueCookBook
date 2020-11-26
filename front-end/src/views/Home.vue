@@ -65,7 +65,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        let response = await axios.get("/api/items");
+        let response = await axios.get("/api/items", {mode: 'cors'});
         this.items = response.data;
         return true;
       } catch (error) {

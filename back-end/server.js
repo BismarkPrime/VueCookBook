@@ -25,17 +25,17 @@ const upload = multer({
 });
 // Create a scheme for items in the museum: a title and a path to an image.
 const itemSchema = new mongoose.Schema({
-    /*
-  title: String,
-  description: String,
-  path: String,
-  */
- category: String,
- name: String,
- author: String,
- img: String,
- ingredients: [],
- procedure: String,
+  /*
+title: String,
+description: String,
+path: String,
+*/
+  category: String,
+  name: String,
+  author: String,
+  img: String,
+  ingredients: Array,
+  procedure: String,
 
 });
 
