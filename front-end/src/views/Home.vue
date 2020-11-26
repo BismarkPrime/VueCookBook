@@ -23,6 +23,7 @@
 
 <script>
 import ProductList from "../components/ProductList.vue";
+import axios from 'axios';
 export default {
   name: "Home",
   components: {
@@ -33,6 +34,7 @@ export default {
       currentProducts: [],
       recipeQuery: "",
       ingredientQuery: "",
+      items: [],
     };
   },
 
@@ -57,7 +59,26 @@ export default {
       return filteredRecipes;
     },
   },
+  created() {
+    this.getItems();
+  },
   methods: {
+    async getItems() {
+      try {
+        let response = await axios.get("/api/items");
+        this.items = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    fetchRecipeJSON: async (myUrl) => {
+      const response = await fetch(myUrl, { mode: "cors" });
+      let recipeJSON = await response.json();
+      console.log(recipeJSON);
+      return [];
+      //return recipeJSON;
+    }
   },
 };
 </script>
