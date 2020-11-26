@@ -25,9 +25,18 @@ const upload = multer({
 });
 // Create a scheme for items in the museum: a title and a path to an image.
 const itemSchema = new mongoose.Schema({
+    /*
   title: String,
   description: String,
   path: String,
+  */
+ category: String,
+ name: String,
+ author: String,
+ img: String,
+ ingredients: [],
+ procedure: String,
+
 });
 
 // Create a model for items in the museum.
@@ -48,9 +57,12 @@ app.post('/api/photos', upload.single('photo'), async (req, res) => {
 // Create a new item in the museum: takes a title and a path to an image.
 app.post('/api/items', async (req, res) => {
   const item = new Item({
-    title: req.body.title,
-    description: req.body.description,
-    path: req.body.path,
+    category: req.body.category,
+    name: req.body.name,
+    author: req.body.author,
+    img: req.body.img,
+    ingredients: req.body.ingredients,
+    procedure: req.body.procedure
   });
   try {
     await item.save();
@@ -83,7 +95,6 @@ app.delete('/api/items/:id', async (req, res) => {
     res.sendStatus(500);
   }
 });
-//deletes an item from the database (my code)
 app.put('/api/items/:id', async (req, res) => {
   try {
     let myItem = await Item.findOne({
@@ -91,8 +102,14 @@ app.put('/api/items/:id', async (req, res) => {
     });
     //console.log(myItem.title)
     //console.log(req.body.title);
-    myItem.title = req.body.title;
-    myItem.description = req.body.description;
+
+    myItem.category = req.body.category;
+    myItem.name = req.body.name;
+    myItem.author = req.body.author;
+    myItem.img = req.body.img;
+    myItem.ingredients = req.body.ingredients;
+    myItem.procedure = req.body.procedure;
+
     myItem.save();
     //myItem.title = req.params.String;
     res.sendStatus(200);
