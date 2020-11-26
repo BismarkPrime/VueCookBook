@@ -7,8 +7,12 @@
   </div>
   <div class="add">
     <div class="form">
-      <input v-model="name" placeholder="Title">
+      <input v-model="name" placeholder="Name">
+      <input v-model="category" placeholder="Category">
+      <input v-model="author" placeholder="Author">
+      <input v-model="img" placeholder="img-link">
       <p><textarea v-model="procedure" id="describer" name="Description"></textarea></p>
+      <p><textarea v-model="ingredients" id="describer" name="Ingredients" placeholder="Ingredients"></textarea></p>
       <input type="file" name="photo" @change="fileChanged">
       <button @click="upload">Upload</button>
     </div>
@@ -25,14 +29,14 @@
       <div class="form">
         <input v-model="findTitle" placeholder="Search">
         <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
+          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.name}}
           </div>
         </div>
       </div>
       <div class="upload" v-if="findItem">
         <input v-model="findItem.title">
         <p><textarea v-model="findItem.description" id="describer2" name="Description"></textarea></p>
-        <img :src="findItem.path" />
+        <img :src="findItem.img" />
       </div>
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
@@ -51,6 +55,10 @@ export default {
     return {
       name: "",
       procedure: "",
+      category: "",
+      author: "",
+      img: "",
+      ingredients: [],
       file: null,
       addItem: null,
       items: [],
@@ -60,8 +68,8 @@ export default {
   },
     computed: {
     suggestions() {
-      let items = this.items.filter(item => item.title.toLowerCase().startsWith(this.findTitle.toLowerCase()));
-      return items.sort((a, b) => a.title > b.title);
+      let items = this.items.filter(item => item.name.toLowerCase().startsWith(this.findTitle.toLowerCase()));
+      return items.sort((a, b) => a.name > b.name);
     }
   },
     created() {
@@ -83,15 +91,14 @@ export default {
 
     async upload() {
       try {
-        const formData = new FormData();
-        formData.append('photo', this.file, this.file.name)
-        let r1 = await axios.post('/api/photos', formData);
+        //const formData = new FormData();
+        //formData.append('photo', this.file, this.file.name)
+        //let r1 = await axios.post('/api/photos', formData);
         let r2 = await axios.post('/api/items', {
           category: this.category,
           name: this.name,
           author: this.author,
-          //img: this.img, //my code
-          img: r1.data.img,
+          img: this.img, //r1.data.img,
           ingredients: this.ingredients,
           procedure: this.procedure
         });
