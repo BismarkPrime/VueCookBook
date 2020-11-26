@@ -13,21 +13,21 @@
         <input v-model="img" placeholder="img-link" />
         <p>
           <textarea
-            v-model="procedure"
-            id="procedure"
-            name="Procedure"
-            placeholder="Procedure"
-          ></textarea>
-        </p>
-        <p>
-          <textarea
             v-model="ingredients"
             id="describer"
             name="Ingredients"
             placeholder="Ingredients"
           ></textarea>
         </p>
-        <input class="btn btn-outline-primary"  type="file" name="photo" @change="fileChanged" />
+        <p>
+          <textarea
+            v-model="procedure"
+            id="procedure"
+            name="Procedure"
+            placeholder="Procedure"
+          ></textarea>
+        </p>
+        <input type="file" name="photo" @change="fileChanged" />
         <button class="btn btn-outline-primary" @click="upload">Upload</button>
       </div>
       <div class="upload" v-if="addItem">
@@ -96,7 +96,7 @@ export default {
       category: "",
       author: "",
       img: "",
-      ingredients: "",
+      ingredients: [],
       file: null,
       addItem: null,
       items: [],
@@ -110,6 +110,13 @@ export default {
         item.name.toLowerCase().startsWith(this.findTitle.toLowerCase())
       );
       return items.sort((a, b) => a.name > b.name);
+    },
+    ingredientString() {
+      let retVal = "";
+      for(let ingredient of this.ingredients) {
+        retVal += ingredient + "\n";
+      }
+      return retVal.substring(0, retVal.length - 1);
     },
   },
   created() {
@@ -223,8 +230,15 @@ button {
   font-size: 1em;
 }
 
+.add {
+  justify-content: center;
+}
+
 .add .form {
-  widows: 100%;
+  width: 70%;
+  min-width: 300px;
+  margin: 0;
+  text-align: center;
 }
 
 .add input {
