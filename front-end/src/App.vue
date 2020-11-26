@@ -34,37 +34,11 @@ export default {
   name: "App",
 
   created() {
-    for (let recipe of this.$root.$data.recipeList) {
-      let section = this.$root.$data.cookBook.find((category) => {
-        return category == recipe.category;
-      });
-      if (section == undefined) {
-        this.$root.$data.cookBook.push({
-          category: recipe.category,
-          recipes: [
-            {
-              name: recipe.name,
-              author: recipe.author,
-              img: recipe.img,
-              ingredients: recipe.ingredients,
-              procedure: recipe.procedure,
-            },
-          ],
-        });
-      } else {
-        this.$root.$data.cookBook
-          .at(
-            this.$root.$data.cookBook.findIndex((section) => {
-              return section.category == recipe.category;
-            })
-          )
-          .recipes.push({
-            name: recipe.name,
-            author: recipe.author,
-            img: recipe.img,
-            ingredients: recipe.ingredients,
-            procedure: recipe.procedure,
-          });
+    for (let section of this.$root.$data.cookBook) {
+      for (let recipe of section.recipes) {
+        recipe.favorite = false;
+        this.$root.$data.recipeList.push(recipe);
+        //this.$root.$data.cart.push({ recipe: recipe, count: 0 });
       }
     }
   },
