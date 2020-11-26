@@ -11,7 +11,7 @@
       <input v-model="category" placeholder="Category">
       <input v-model="author" placeholder="Author">
       <input v-model="img" placeholder="img-link">
-      <p><textarea v-model="procedure" id="describer" name="Description"></textarea></p>
+      <p><textarea v-model="procedure" id="describer" name="Description" placeholder="Directions"></textarea></p>
       <p><textarea v-model="ingredients" id="describer" name="Ingredients" placeholder="Ingredients"></textarea></p>
       <input type="file" name="photo" @change="fileChanged">
       <button @click="upload">Upload</button>
@@ -58,7 +58,7 @@ export default {
       category: "",
       author: "",
       img: "",
-      ingredients: [],
+      ingredients: "",
       file: null,
       addItem: null,
       items: [],
@@ -99,7 +99,7 @@ export default {
           name: this.name,
           author: this.author,
           img: this.img, //r1.data.img,
-          ingredients: this.ingredients,
+          ingredients: this.ingredients.split(/\r?\n/),
           procedure: this.procedure
         });
         this.addItem = r2.data;
