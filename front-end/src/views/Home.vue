@@ -40,7 +40,8 @@ export default {
 
   computed: {
     recipes() {
-      let filteredRecipes = this.$root.$data.recipeList.filter(
+      let filteredRecipes = this.items.filter(
+      //let filteredRecipes = this.$root.$data.recipeList.filter(
         (recipe) => recipe.name.toLowerCase().search(this.recipeQuery.toLowerCase()) >= 0
       );
       let ingredientQueryList = this.ingredientQuery.split(",");
