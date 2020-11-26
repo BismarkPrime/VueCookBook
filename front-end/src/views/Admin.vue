@@ -5,37 +5,63 @@
     <div class="circle">1</div>
     <h2>Add an Item</h2>
   </div>
-  <div class="add">
-    <div class="form">
-      <input v-model="name" placeholder="Name">
-      <input v-model="category" placeholder="Category">
-      <input v-model="author" placeholder="Author">
-      <input v-model="img" placeholder="img-link">
-      <p><textarea v-model="procedure" id="describer" name="Description" placeholder="Directions"></textarea></p>
-      <p><textarea v-model="ingredients" id="describer" name="Ingredients" placeholder="Ingredients"></textarea></p>
-      <input type="file" name="photo" @change="fileChanged">
-      <button @click="upload">Upload</button>
+    <div class="add">
+      <div class="form">
+        <input v-model="name" placeholder="Name" />
+        <input v-model="category" placeholder="Category" />
+        <input v-model="author" placeholder="Author" />
+        <input v-model="img" placeholder="img-link" />
+        <p>
+          <textarea
+            v-model="procedure"
+            id="procedure"
+            name="Procedure"
+            placeholder="Procedure"
+          ></textarea>
+        </p>
+        <p>
+          <textarea
+            v-model="ingredients"
+            id="describer"
+            name="Ingredients"
+            placeholder="Ingredients"
+          ></textarea>
+        </p>
+        <input type="file" name="photo" @change="fileChanged" />
+        <button @click="upload">Upload</button>
+      </div>
+      <div class="upload" v-if="addItem">
+        <h2>{{ addItem.name }}</h2>
+        <img :src="addItem.img" />
+      </div>
     </div>
-    <div class="upload" v-if="addItem">
-      <h2>{{addItem.title}}</h2>
-      <img :src="addItem.path" />
-    </div>
-  </div>
-      <div class="heading">
+    <div class="heading">
       <div class="circle">2</div>
       <h2>Edit/Delete an Item</h2>
     </div>
     <div class="edit">
       <div class="form">
-        <input v-model="findTitle" placeholder="Search">
+        <input v-model="findTitle" placeholder="Search" />
         <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.name}}
+          <div
+            class="suggestion"
+            v-for="s in suggestions"
+            :key="s.id"
+            @click="selectItem(s)"
+          >
+            {{ s.name }}
           </div>
         </div>
       </div>
       <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
-        <p><textarea v-model="findItem.description" id="describer2" name="Description"></textarea></p>
+        <input v-model="findItem.name" />
+        <p>
+          <textarea
+            v-model="findItem.description"
+            id="describer2"
+            name="Description"
+          ></textarea>
+        </p>
         <img :src="findItem.img" />
       </div>
       <div class="actions" v-if="findItem">
@@ -43,15 +69,15 @@
         <button @click="editItem(findItem)">Edit</button>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: 'Admin',
-    data() {
+  name: "Admin",
+  data() {
     return {
       name: "",
       procedure: "",
@@ -64,37 +90,39 @@ export default {
       items: [],
       findTitle: "",
       findItem: null,
-    }
+    };
   },
-    computed: {
+  computed: {
     suggestions() {
-      let items = this.items.filter(item => item.name.toLowerCase().startsWith(this.findTitle.toLowerCase()));
+      let items = this.items.filter((item) =>
+        item.name.toLowerCase().startsWith(this.findTitle.toLowerCase())
+      );
       return items.sort((a, b) => a.name > b.name);
-    }
+    },
   },
-    created() {
+  created() {
     this.getItems();
   },
-    methods: {
+  methods: {
     fileChanged(event) {
-      this.file = event.target.files[0]
+      this.file = event.target.files[0];
     },
     async getItems() {
-  try {
-    let response = await axios.get("/api/items");
-    this.items = response.data;
-    return true;
-  } catch (error) {
-    console.log(error);
-  }
-},
+      try {
+        let response = await axios.get("/api/items");
+        this.items = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
     async upload() {
       try {
         //const formData = new FormData();
         //formData.append('photo', this.file, this.file.name)
         //let r1 = await axios.post('/api/photos', formData);
-        let r2 = await axios.post('/api/items', {
+        let r2 = await axios.post("/api/items", {
           category: this.category,
           name: this.name,
           author: this.author,
@@ -117,11 +145,15 @@ export default {
         console.log(error);
       }
     },
-        async editItem(item) {
+    async editItem(item) {
       try {
         await axios.put("/api/items/" + item._id, {
-          title: this.findItem.title,
-          description: this.findItem.description,
+          category: this.category,
+          name: this.name,
+          author: this.author,
+          img: this.img, //r1.data.img,
+          ingredients: this.ingredients,
+          procedure: this.procedure,
         });
         this.findItem = null;
         this.getItems();
@@ -134,9 +166,8 @@ export default {
       this.findTitle = "";
       this.findItem = item;
     },
-
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -168,7 +199,7 @@ export default {
   padding: 8px;
   background: #333;
   color: #fff;
-  text-align: center
+  text-align: center;
 }
 
 /* Form */
@@ -176,7 +207,7 @@ input,
 textarea,
 select,
 button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1em;
 }
 
@@ -204,7 +235,7 @@ button {
 }
 
 .suggestion:hover {
-  background-color: #5BDEFF;
+  background-color: #5bdeff;
   color: #fff;
 }
 </style>
