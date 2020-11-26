@@ -34,7 +34,7 @@ const itemSchema = new mongoose.Schema({
  name: String,
  author: String,
  img: String,
- ingredients: [],
+ ingredients: Array,
  procedure: String,
 
 });
