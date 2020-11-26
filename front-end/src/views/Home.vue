@@ -58,11 +58,6 @@ export default {
     },
   },
   methods: {
-    fetchRecipeJSON: async (myUrl) => {
-      const response = await fetch(myUrl, { mode: "cors" });
-      let recipeJSON = await response.json();
-      return recipeJSON;
-    }
   },
 };
 </script>
