@@ -27,8 +27,8 @@
             placeholder="Ingredients"
           ></textarea>
         </p>
-        <input type="file" name="photo" @change="fileChanged" />
-        <button @click="upload">Upload</button>
+        <input class="btn btn-outline-primary"  type="file" name="photo" @change="fileChanged" />
+        <button class="btn btn-outline-primary" @click="upload">Upload</button>
       </div>
       <div class="upload" v-if="addItem">
         <h2>{{ addItem.name }}</h2>
@@ -209,6 +209,20 @@ select,
 button {
   font-family: "Montserrat", sans-serif;
   font-size: 1em;
+}
+
+.add .form {
+  widows: 100%;
+}
+
+.add input {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.add textarea {
+  width: 100%;
 }
 
 .form {
