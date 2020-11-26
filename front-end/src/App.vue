@@ -3,7 +3,10 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="../public/images/digital-chef2.webp" alt="Digital Chef Logo" />
+          <img
+            src="../public/images/digital-chef2.webp"
+            alt="Digital Chef Logo"
+          />
         </router-link>
       </div>
       <div id="side">
@@ -16,16 +19,20 @@
         <router-link to="/cart">
           <i class="fas fa-heart fa-4x"></i>
           <div class="menu-item">
-            <p>{{ cartCount + " recipe" + ((cartCount != 1) ? "s" : "") }} </p>
+            <p>{{ cartCount + " recipe" + (cartCount != 1 ? "s" : "") }}</p>
           </div>
         </router-link>
       </div>
     </div>
     <router-view />
-      <footer>
+    <footer>
       &copy; 2020 Peter Seely &amp; Adam Johnson -
-      <span><a href="https://github.com/BismarkPrime/VueCookBook">View Github Source</a></span>
-  </footer>
+      <span
+        ><a href="https://github.com/BismarkPrime/VueCookBook"
+          >View Github Source</a
+        ></span
+      >
+    </footer>
   </div>
 </template>
 
@@ -35,8 +42,8 @@ export default {
 
   created() {
     for (let recipe of this.$root.$data.recipeList) {
-      let section = this.$root.$data.cookBook.find((category) => {
-        return category == recipe.category;
+      let section = this.$root.$data.cookBook.find((section) => {
+        return section.category == recipe.category;
       });
       if (section == undefined) {
         this.$root.$data.cookBook.push({
@@ -52,19 +59,17 @@ export default {
           ],
         });
       } else {
-        this.$root.$data.cookBook
-          .at(
-            this.$root.$data.cookBook.findIndex((section) => {
-              return section.category == recipe.category;
-            })
-          )
-          .recipes.push({
-            name: recipe.name,
-            author: recipe.author,
-            img: recipe.img,
-            ingredients: recipe.ingredients,
-            procedure: recipe.procedure,
-          });
+        this.$root.$data.cookBook[
+          this.$root.$data.cookBook.findIndex((section) => {
+            return section.category == recipe.category;
+          })
+        ].recipes.push({
+          name: recipe.name,
+          author: recipe.author,
+          img: recipe.img,
+          ingredients: recipe.ingredients,
+          procedure: recipe.procedure,
+        });
       }
     }
   },
