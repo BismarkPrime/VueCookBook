@@ -3,7 +3,7 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="../images/digital-chef2.webp" alt="Digital Chef Logo" />
+          <img src="../public/images/digital-chef2.webp" alt="Digital Chef Logo" />
         </router-link>
       </div>
       <div id="side">
