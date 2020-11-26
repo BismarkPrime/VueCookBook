@@ -27,23 +27,21 @@
     <router-view />
     <footer>
       &copy; 2020 Peter Seely &amp; Adam Johnson -
-      <span>
-        <a href="https://github.com/BismarkPrime/VueCookBook"
+      <span
+        ><a href="https://github.com/BismarkPrime/VueCookBook"
           >View Github Source</a
-        >
-      </span>
+        ></span
+      >
     </footer>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "App",
 
   created() {
-    this.getRecipeList();
-/*    for (let recipe of this.$root.$data.recipeList) {
+    for (let recipe of this.$root.$data.recipeList) {
       let section = this.$root.$data.cookBook.find((section) => {
         return section.category == recipe.category;
       });
@@ -73,7 +71,7 @@ export default {
           procedure: recipe.procedure,
         });
       }
-    } */
+    }
   },
 
   computed: {
@@ -82,42 +80,6 @@ export default {
         return total + current.favorite;
       }, 0);
       return count;
-    },
-  },
-  methods: {
-    async getRecipeList() {
-      this.$root.$data.recipeList = await axios.get("/api/items", {mode:'cors'}).data;
-      for (let recipe of this.$root.$data.recipeList) {
-        let section = this.$root.$data.cookBook.find((section) => {
-          return section.category == recipe.category;
-        });
-        if (section == undefined) {
-          this.$root.$data.cookBook.push({
-            category: recipe.category,
-            recipes: [
-              {
-                name: recipe.name,
-                author: recipe.author,
-                img: recipe.img,
-                ingredients: recipe.ingredients,
-                procedure: recipe.procedure,
-              },
-            ],
-          });
-        } else {
-          this.$root.$data.cookBook[
-            this.$root.$data.cookBook.findIndex((section) => {
-              return section.category == recipe.category;
-            })
-          ].recipes.push({
-            name: recipe.name,
-            author: recipe.author,
-            img: recipe.img,
-            ingredients: recipe.ingredients,
-            procedure: recipe.procedure,
-          });
-        }
-      }
     },
   },
 };
@@ -224,6 +186,5 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-  color: #f3f3f3;
 }
 </style>

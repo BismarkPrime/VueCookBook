@@ -5,14 +5,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-
 Vue.config.productionTip = false
 
-//import recipeDB from './cook-book3.json'
+import recipeDB from './cook-book3.json'
 
 let data = {
   cookBook: [],
-  recipeList: [],
+  recipeList: recipeDB,
   cart: []
 }
 
