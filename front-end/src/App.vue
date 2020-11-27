@@ -1,6 +1,16 @@
 <template>
   <div id="app">
     <div id="menu">
+      <div id="left-side">
+        <router-link to="/admin">
+          <div id="admin">
+            <i class="fas fa-user-lock fa-4x"></i>
+            <div class="menu-item browse">
+              <p>Admin</p>
+            </div>
+          </div>
+        </router-link>
+      </div>
       <div id="brand">
         <router-link to="/">
           <img
@@ -11,15 +21,19 @@
       </div>
       <div id="side">
         <router-link to="/browse">
-          <i class="fas fa-utensils fa-4x"></i>
-          <div class="menu-item browse">
-            <p>Filter</p>
+          <div id="filter">
+            <i class="fas fa-utensils fa-4x"></i>
+            <div class="menu-item browse">
+              <p>Filter</p>
+            </div>
           </div>
         </router-link>
         <router-link to="/cart">
-          <i class="fas fa-heart fa-4x"></i>
-          <div class="menu-item">
-            <p>{{ cartCount + " recipe" + (cartCount != 1 ? "s" : "") }}</p>
+          <div id="cart">
+            <i class="fas fa-heart fa-4x"></i>
+            <div class="menu-item">
+              <p>{{ cartCount + " recipe" + (cartCount != 1 ? "s" : "") }}</p>
+            </div>
           </div>
         </router-link>
       </div>
@@ -79,13 +93,8 @@ export default {
   computed: {
     cartCount() {
       let count = this.$root.$data.items.reduce((total, current) => {
-        //current.favorite = !(current.favorite == undefined || current.favorite == false);
-        console.log("current.favorite is undefined: " + (current.favorite == undefined));
-        console.log("current value of current.favorite: " + current.favorite);
         return total + current.favorite;
       }, 0);
-      console.log("in cartCount");
-      console.log("items.length = " + this.$root.$data.items.length);
       return count;
     },
   },
@@ -114,7 +123,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 5px;
-  grid-template-areas: "none brand side";
+  grid-template-areas: "left-side brand side";
   margin-bottom: 50px;
 }
 
@@ -122,12 +131,20 @@ body {
   color: #333;
 }
 
-#side i {
+#side i,
+#left-side i {
   color: rgb(85, 85, 85);
 }
 
-#side i:hover {
+#side i:hover,
+#left-side i:hover {
   color: #333;
+}
+
+#left-side {
+  grid-area: left-side;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #brand {
@@ -150,26 +167,30 @@ body {
   width: 50px;
 }
 
+#admin,
+#filter,
+#cart {
+  text-align: center;
+}
+
 .menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 20px;
 }
 
 .menu-item p {
   margin: 0px;
 }
+
 a:link {
   text-decoration: bold;
 }
 
 router-link {
   color: #333;
-}
-
-.browse {
-  margin-right: 50px;
 }
 
 footer {
