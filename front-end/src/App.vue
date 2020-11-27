@@ -40,6 +40,11 @@
 import axios from "axios";
 export default {
   name: "App",
+  data() {
+    return {
+      refresh: this.getItems(),
+    };
+  },
 
   created() {
     this.getItems();

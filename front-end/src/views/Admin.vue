@@ -102,6 +102,7 @@ export default {
       items: [],
       findTitle: "",
       findItem: null,
+      changed: true
     };
   },
   computed: {
@@ -123,7 +124,8 @@ export default {
     fileChanged(event) {
       this.file = event.target.files[0];
     },
-
+    getItems() {
+    },
     async upload() {
       try {
         //const formData = new FormData();
@@ -138,6 +140,7 @@ export default {
           procedure: this.procedure,
         });
         this.addItem = r2.data;
+        this.$root.$data.items.push(r2.data);
       } catch (error) {
         console.log(error);
       }
@@ -147,6 +150,9 @@ export default {
         await axios.delete("/api/items/" + item._id);
         this.findItem = null;
         this.getItems();
+        this.$root.$data.items = this.$root.$data.items.filter(x => {
+          return x._id != item._id;
+        });
         return true;
       } catch (error) {
         console.log(error);
