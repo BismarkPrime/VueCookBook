@@ -53,58 +53,34 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: "ProductList",
   props: {
     recipes: Array,
   },
-  data() {
-    return {
-      items: Array,
-    };
-  },
 
   created() {
-    this.getItems();
-    this.recipes.forEach(name => {
-      console.log(name);
-    });
   },
 
   methods: {
     addToFavorites(currentRecipe) {
-
-      let recipeIndex = this.recipes.findIndex((recipe) => {
+      let recipeIndex = this.$root.$data.items.findIndex((recipe) => {
         return recipe == currentRecipe;
       });
       console.log(recipeIndex);
-      this.recipes[recipeIndex].favorite = !this.recipes[recipeIndex].favorite;
-
-      this.recipes.push({});
-      this.recipes.length--;
+      this.$root.$data.items[recipeIndex].favorite = !this.$root.$data.items[recipeIndex].favorite;
+      this.$forceUpdate()
     },
     isFavorite(recipeName) {
-      let index = this.recipes.findIndex((recipe) => {
+      let index = this.$root.$data.items.findIndex((recipe) => {
         return recipe.name == recipeName;
       });
-      if (this.recipes[index].favorite) {
+      if (this.$root.$data.items[index].favorite) {
         return true;
       }
-      this.recipes[index].favorite = false;
-      this.recipes.push({});
-      this.recipes.length--;
+      this.$root.$data.items[index].favorite = false;
       return false;
 
-    },
-    async getItems() {
-      try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
     },
   },
 };

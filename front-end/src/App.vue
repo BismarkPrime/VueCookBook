@@ -37,33 +37,48 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "App",
 
   created() {
-    for (let recipe of this.$root.$data.recipeList) {
-      recipe.favorite = false;
-      let section = this.$root.$data.cookBook.find((section) => {
-        return section.category == recipe.category;
-      });
-      if (section == undefined) {
-        this.$root.$data.cookBook.push({
-          category: recipe.category,
-          recipes: [recipe],
-        });
-      } else {
-        this.$root.$data.cookBook[
-          this.$root.$data.cookBook.findIndex((section) => {
+    this.getItems();
+  },
+  methods: {
+    async getItems() {
+      this.$root.$data.cookBook = [];
+      try {
+        let response = await axios.get("/api/items");
+        this.$root.$data.items = await response.data;
+
+        for (let recipe of this.$root.$data.items) {
+          recipe.favorite = false;
+          let section = this.$root.$data.cookBook.find((section) => {
             return section.category == recipe.category;
-          })
-        ].recipes.push({recipe});
+          });
+          if (section == undefined) {
+            this.$root.$data.cookBook.push({
+              category: recipe.category,
+              recipes: [recipe],
+            });
+          } else {
+            this.$root.$data.cookBook[
+              this.$root.$data.cookBook.findIndex((section) => {
+                return section.category == recipe.category;
+              })
+            ].recipes.push(recipe);
+          }
+        }
+        return true;
+      } catch (error) {
+        console.log(error);
       }
-    }
+    },
   },
 
   computed: {
     cartCount() {
-      let count = this.$root.$data.recipeList.reduce((total, current) => {
+      let count = this.$root.$data.items.reduce((total, current) => {
         return total + current.favorite;
       }, 0);
       return count;
