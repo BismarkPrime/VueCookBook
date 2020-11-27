@@ -128,9 +128,7 @@ export default {
     },
     async upload() {
       try {
-        //const formData = new FormData();
-        //formData.append('photo', this.file, this.file.name)
-        //let r1 = await axios.post('/api/photos', formData);
+        const formData = new FormData();
         let r2 = await axios.post("/api/items", {
           category: this.category,
           name: this.name,
@@ -139,6 +137,12 @@ export default {
           ingredients: this.ingredients.split(/\r?\n/),
           procedure: this.procedure,
         });
+        if (this.file != null) {
+          formData.append('photo', this.file, this.file.name);
+          let r1 = await axios.post('/api/photos', formData);
+          console.log(r1.data);
+          r2.data.img = r1.data.path;
+        }
         this.addItem = r2.data;
         this.$root.$data.items.push(r2.data);
       } catch (error) {
