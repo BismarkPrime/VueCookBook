@@ -13,7 +13,7 @@ let data = {
   cookBook: [],
   recipeList: recipeDB,
   cart: [],
-  items: []
+  items: [],
 }
 
 new Vue({
