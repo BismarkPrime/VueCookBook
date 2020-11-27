@@ -23,7 +23,6 @@
 
 <script>
 import ProductList from "../components/ProductList.vue";
-import axios from 'axios';
 export default {
   name: "Home",
   components: {
@@ -34,13 +33,12 @@ export default {
       currentProducts: [],
       recipeQuery: "",
       ingredientQuery: "",
-      items: [],
     };
   },
 
   computed: {
     recipes() {
-      let filteredRecipes = this.items.filter(
+      let filteredRecipes = this.$root.$data.items.filter(
       //let filteredRecipes = this.$root.$data.recipeList.filter(
         (recipe) => recipe.name.toLowerCase().search(this.recipeQuery.toLowerCase()) >= 0
       );
@@ -60,19 +58,7 @@ export default {
       return filteredRecipes;
     },
   },
-  created() {
-    this.getItems();
-  },
   methods: {
-    async getItems() {
-      try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     fetchRecipeJSON: async (myUrl) => {
       const response = await fetch(myUrl, { mode: "cors" });
       let recipeJSON = await response.json();

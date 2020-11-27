@@ -20,17 +20,12 @@ export default {
 
   computed: {
     favoriteRecipes() {
-      return this.$root.$data.recipeList.filter((recipe) => {
+      return this.$root.$data.items.filter((recipe) => {
         return recipe.favorite;
       });
     },
   },
   methods: {
-    removeFromCart(currentRecipe) {
-      this.$root.$data.cart.find((recipe) => {
-        return recipe == currentRecipe;
-      }).favorite = false;
-    },
   },
 };
 </script>

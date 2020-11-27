@@ -23,24 +23,28 @@ export default {
   },
   data() {
     return {
-      
       category: "",
     };
   },
   computed: {
     recipes() {
+      console.log("New call:");
+      console.log(this.$root.$data.cookBook);
       for (let section of this.$root.$data.cookBook) {
+        //console.log("Section Query: " + this.category + "\n" + "Current Section: " + section.category);
         if (section.category == this.category) {
+          console.log(section.recipes);
           return section.recipes;
         }
       }
+      //console.log(this.$root.$data.cookBook);
       return [];
     },
-    products_old() {
+    /*recipes() {
       return this.$root.$data.cookBook.filter(
         (product) => product.category === this.category
       );
-    },
+    },*/
   },
   methods: {
     select(category) {

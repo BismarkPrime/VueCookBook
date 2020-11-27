@@ -12,7 +12,8 @@ import recipeDB from './cook-book3.json'
 let data = {
   cookBook: [],
   recipeList: recipeDB,
-  cart: []
+  cart: [],
+  items: []
 }
 
 new Vue({

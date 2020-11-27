@@ -86,7 +86,7 @@
 
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
   name: "Admin",
   data() {
@@ -106,27 +106,15 @@ export default {
   },
   computed: {
     suggestions() {
-      let items = this.items.filter((item) =>
+      let items = this.$root.$data.items.filter((item) =>
         item.name.toLowerCase().startsWith(this.findTitle.toLowerCase())
       );
       return items.sort((a, b) => a.name > b.name);
     },
   },
-  created() {
-    this.getItems();
-  },
   methods: {
     fileChanged(event) {
       this.file = event.target.files[0];
-    },
-    async getItems() {
-      try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
     },
 
     async upload() {
