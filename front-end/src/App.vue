@@ -57,7 +57,7 @@ export default {
         this.$root.$data.items = await response.data;
 
         for (let recipe of this.$root.$data.items) {
-          recipe.favorite = false;
+          this.$set(recipe, "favorite", false);
           let section = this.$root.$data.cookBook.find((section) => {
             return section.category == recipe.category;
           });
@@ -84,8 +84,13 @@ export default {
   computed: {
     cartCount() {
       let count = this.$root.$data.items.reduce((total, current) => {
+        //current.favorite = !(current.favorite == undefined || current.favorite == false);
+        console.log("current.favorite is undefined: " + (current.favorite == undefined));
+        console.log("current value of current.favorite: " + current.favorite);
         return total + current.favorite;
       }, 0);
+      console.log("in cartCount");
+      console.log("items.length = " + this.$root.$data.items.length);
       return count;
     },
   },
