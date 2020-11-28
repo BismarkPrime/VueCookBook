@@ -39,15 +39,20 @@ export default {
   computed: {
     recipes() {
       let filteredRecipes = this.$root.$data.items.filter(
-      //let filteredRecipes = this.$root.$data.recipeList.filter(
-        (recipe) => recipe.name.toLowerCase().search(this.recipeQuery.toLowerCase()) >= 0
+        //let filteredRecipes = this.$root.$data.recipeList.filter(
+        (recipe) =>
+          recipe.name.toLowerCase().search(this.recipeQuery.toLowerCase()) >= 0
       );
       let ingredientQueryList = this.ingredientQuery.split(",");
       for (let ingredientQuery of ingredientQueryList) {
         if (ingredientQuery.trim().length) {
           filteredRecipes = filteredRecipes.filter((recipe) => {
             for (let ingredient of recipe.ingredients) {
-              if (ingredient.toLowerCase().search(ingredientQuery.toLowerCase().trim()) >= 0) {
+              if (
+                ingredient
+                  .toLowerCase()
+                  .search(ingredientQuery.toLowerCase().trim()) >= 0
+              ) {
                 return true;
               }
             }
@@ -65,7 +70,7 @@ export default {
       console.log(recipeJSON);
       return [];
       //return recipeJSON;
-    }
+    },
   },
 };
 </script>

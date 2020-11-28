@@ -214,5 +214,28 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+  color: #f3f3f3;
+}
+
+@media only screen and (max-width: 500px) {
+  #menu .brand {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  #menu .left-side {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  #menu .side {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  #menu {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "brand brand brand" 
+                         "left-side side side";
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
+  }
 }
 </style>

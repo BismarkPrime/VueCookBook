@@ -2,7 +2,7 @@
   <div class="admin">
     <h1>The Admin Page!</h1>
     <div class="heading">
-      <div class="circle">1</div>
+      <i class="fas fa-plus-square fa-3x"></i>
       <h2>Add an Item</h2>
     </div>
     <div class="add">
@@ -10,7 +10,6 @@
         <input v-model="name" placeholder="Name" />
         <input v-model="category" placeholder="Category" />
         <input v-model="author" placeholder="Author" />
-        <input v-model="img" placeholder="img-link" />
         <p>
           <textarea
             v-model="ingredients"
@@ -27,6 +26,7 @@
             placeholder="Procedure"
           ></textarea>
         </p>
+        <input v-model="img" placeholder="Image URL" />
         <input type="file" name="photo" @change="fileChanged" />
         <button class="btn btn-outline-primary" @click="upload">Upload</button>
       </div>
@@ -36,49 +36,55 @@
       </div>
     </div>
     <div class="heading">
-      <div class="circle">2</div>
+      <i class="fas fa-pen-square fa-3x"></i>
       <h2>Edit/Delete an Item</h2>
     </div>
-    <div class="edit">
-      <div class="form">
-        <input v-model="findTitle" placeholder="Search" />
-        <div class="suggestions" v-if="suggestions.length > 0">
-          <div
-            class="suggestion"
-            v-for="s in suggestions"
-            :key="s.id"
-            @click="selectItem(s)"
-          >
-            {{ s.name }}
+    <div class="container edit">
+      <div class="row">
+        <div class="col-md-3 form">
+          <input v-model="findTitle" placeholder="Search" />
+          <div class="suggestions" v-if="suggestions.length > 0">
+            <div
+              class="suggestion"
+              v-for="s in suggestions"
+              :key="s.id"
+              @click="selectItem(s)"
+            >
+              {{ s.name }}
+            </div>
           </div>
         </div>
-      </div>
-      <div class="upload" v-if="findItem">
-        <input v-model="findItem.name" placeholder="Name" />
-        <input v-model="findItem.category" placeholder="Category" />
-        <input v-model="findItem.author" placeholder="Author" />
-        <input v-model="findItem.img" placeholder="Img-link" />
-        <p>
-          <textarea
-            v-model="findItem.ingredients"
-            id="ingredients2"
-            name="Ingredients2"
-            placeholder="Ingredients"
-          ></textarea>
-        </p>
-        <p>
-          <textarea
-            v-model="findItem.procedure"
-            id="procedure2"
-            name="Procedure2"
-            placeholder="Procedure"
-          ></textarea>
-        </p>
-        <img :src="findItem.img" />
-      </div>
-      <div class="actions" v-if="findItem">
-        <button @click="deleteItem(findItem)">Delete</button>
-        <button @click="editItem(findItem)">Save Changes</button>
+        <div class="col-md-7 upload" v-if="findItem">
+          <input v-model="findItem.name" placeholder="Name" />
+          <input v-model="findItem.category" placeholder="Category" />
+          <input v-model="findItem.author" placeholder="Author" />
+          <input v-model="findItem.img" placeholder="Image URL" />
+          <p>
+            <textarea
+              v-model="findItem.ingredients"
+              id="ingredients2"
+              name="Ingredients2"
+              placeholder="Ingredients"
+            ></textarea>
+          </p>
+          <p>
+            <textarea
+              v-model="findItem.procedure"
+              id="procedure2"
+              name="Procedure2"
+              placeholder="Procedure"
+            ></textarea>
+          </p>
+          <img :src="findItem.img" />
+        </div>
+        <div class="col-md-2 actions" v-if="findItem">
+          <button class="btn btn-outline-primary delete-item" @click="deleteItem(findItem)">
+            Delete
+          </button>
+          <button class="btn btn-outline-primary edit-item" @click="editItem(findItem)">
+            Save Changes
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +92,7 @@
 
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "Admin",
   data() {
@@ -102,7 +108,7 @@ export default {
       items: [],
       findTitle: "",
       findItem: null,
-      changed: true
+      changed: true,
     };
   },
   computed: {
@@ -114,7 +120,7 @@ export default {
     },
     ingredientString() {
       let retVal = "";
-      for(let ingredient of this.ingredients) {
+      for (let ingredient of this.ingredients) {
         retVal += ingredient + "\n";
       }
       return retVal.substring(0, retVal.length - 1);
@@ -124,8 +130,7 @@ export default {
     fileChanged(event) {
       this.file = event.target.files[0];
     },
-    getItems() {
-    },
+    getItems() {},
     async upload() {
       try {
         //const formData = new FormData();
@@ -150,7 +155,7 @@ export default {
         await axios.delete("/api/items/" + item._id);
         this.findItem = null;
         this.getItems();
-        this.$root.$data.items = this.$root.$data.items.filter(x => {
+        this.$root.$data.items = this.$root.$data.items.filter((x) => {
           return x._id != item._id;
         });
         return true;
@@ -190,9 +195,9 @@ export default {
 }
 
 .heading {
-  display: flex;
   margin-bottom: 20px;
   margin-top: 20px;
+  text-align: center;
 }
 
 .heading h2 {
@@ -200,9 +205,18 @@ export default {
   margin-left: 10px;
 }
 
-.add,
-.edit {
+.add {
   display: flex;
+}
+
+.container,
+.row {
+  margin: 0;
+  min-width: 100%;
+}
+
+.heading i {
+  margin: auto 0;
 }
 
 .circle {
@@ -225,13 +239,18 @@ button {
 }
 
 .add {
-  justify-content: center;
+  text-align: center;
+  min-width: 100%;
+}
+
+.form input {
+  width: 100%;
 }
 
 .add .form {
   width: 70%;
-  min-width: 300px;
-  margin: 0;
+  min-width: 250px;
+  margin: auto;
   text-align: center;
 }
 
@@ -245,10 +264,6 @@ button {
   width: 100%;
 }
 
-.form {
-  margin-right: 50px;
-}
-
 /* Uploaded images */
 .upload h2 {
   margin: 0px;
@@ -258,18 +273,43 @@ button {
   max-width: 300px;
 }
 
+.upload {
+  text-align: center;
+  align-items: center;
+}
+
+.upload input,
+.upload p textarea {
+  width: 100%;
+}
+
+.upload input {
+  margin-bottom: 16px;
+}
+
 /* Suggestions */
 .suggestions {
-  width: 200px;
+  width: 100%;
   border: 1px solid #ccc;
+  margin-bottom: 16px;
 }
 
 .suggestion {
   min-height: 20px;
+  padding: 9px;
 }
 
 .suggestion:hover {
   background-color: #5bdeff;
   color: #fff;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions button {
+  margin-bottom: 16px;
 }
 </style>
