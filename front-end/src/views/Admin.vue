@@ -190,10 +190,6 @@ export default {
         }
         await axios.delete("/api/items/" + item._id + imageToPass);
         this.findItem = null;
-<<<<<<< HEAD
-        this.getItems();
-=======
->>>>>>> 7ce705abe5490fe6d27dc5e8c53bca5328f07dc2
         this.$root.$data.items = this.$root.$data.items.filter((x) => {
           return x._id != item._id;
         });
