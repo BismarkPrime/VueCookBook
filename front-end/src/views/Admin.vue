@@ -86,7 +86,7 @@
 
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Admin",
@@ -103,7 +103,7 @@ export default {
       items: [],
       findTitle: "",
       findItem: null,
-      changed: true
+      changed: true,
     };
   },
   computed: {
@@ -115,7 +115,7 @@ export default {
     },
     ingredientString() {
       let retVal = "";
-      for(let ingredient of this.ingredients) {
+      for (let ingredient of this.ingredients) {
         retVal += ingredient + "\n";
       }
       return retVal.substring(0, retVal.length - 1);
@@ -125,15 +125,15 @@ export default {
     fileChanged(event) {
       this.file = event.target.files[0];
     },
-    getItems() {
-    },
+    getItems() {},
     async upload() {
+      //this.loadFromJSON();
       try {
         const formData = new FormData();
         let myImagePath = this.img;
         if (this.file != null) {
-          formData.append('photo', this.file, this.file.name);
-          let r1 = await axios.post('/api/photos', formData);
+          formData.append("photo", this.file, this.file.name);
+          let r1 = await axios.post("/api/photos", formData);
           console.log(r1.data.path);
           myImagePath = r1.data.path;
         }
@@ -151,12 +151,41 @@ export default {
         console.log(error);
       }
     },
+    async loadFromJSON() {
+      for (let i = 0; i < this.$root.$data.recipeList.length; i++) {
+        this.uploadJSON(this.$root.$data.recipeList[i]);
+      }
+    },
+    async uploadJSON(item) {
+      try {
+        let r2 = await axios.post("/api/items", {
+          category: item.category,
+          name: item.name,
+          author: item.author,
+          img: item.img,
+          ingredients: item.ingredients,
+          procedure: item.procedure,
+        });
+        this.addItem = r2.data;
+        this.$root.$data.items.push(r2.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async deleteItem(item) {
       try {
+        let imageToPass = "";
         //console.log(item.img);
-        await axios.delete("/api/items/" + item._id + item.img);
+
+        if (item.img != "" && item.img[0] == 'h') {
+          imageToPass = "/not/noDelete";
+        }
+        else {
+          imageToPass = item.img
+        }
+        await axios.delete("/api/items/" + item._id + imageToPass);
         this.findItem = null;
-        this.$root.$data.items = this.$root.$data.items.filter(x => {
+        this.$root.$data.items = this.$root.$data.items.filter((x) => {
           return x._id != item._id;
         });
         return true;
