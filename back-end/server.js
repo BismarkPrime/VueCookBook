@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require("body-parser");
-
+var fs = require('fs');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
 }));
 
 const mongoose = require('mongoose');
@@ -84,8 +84,19 @@ app.get('/api/items', async (req, res) => {
 });
 
 //deletes an item from the database (my code)
-app.delete('/api/items/:id', async (req, res) => {
+app.delete('/api/items/:id/:ignore/:realpath', async (req, res) => {
   try {
+    //let path = req.params.mypath.substring(4,req.params.mypath.length - 1) //remove api form the beginning
+  //console.log(req.url.mypath);
+  //   console.log("mypath: " + mypath);
+  //   let filePath = "../front-end/public" + path;
+  //   console.log("../front-end/public/images/4024735652d329adfe4f9e8b647041a1");
+  // let mypath = req.params.mypath;
+  fs.unlink("../front-end/public/images/" + req.params.realpath, function (err) {
+      if (err) throw err;
+      // if no error, file has been deleted successfully
+      console.log('File deleted!');
+  }); 
     await Item.deleteOne({
       _id: req.params.id
     });

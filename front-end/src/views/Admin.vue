@@ -87,6 +87,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: "Admin",
   data() {
@@ -129,20 +130,21 @@ export default {
     async upload() {
       try {
         const formData = new FormData();
+        let myImagePath = this.img;
+        if (this.file != null) {
+          formData.append('photo', this.file, this.file.name);
+          let r1 = await axios.post('/api/photos', formData);
+          console.log(r1.data.path);
+          myImagePath = r1.data.path;
+        }
         let r2 = await axios.post("/api/items", {
           category: this.category,
           name: this.name,
           author: this.author,
-          img: this.img, //r1.data.img,
+          img: myImagePath, //r1.data.img,
           ingredients: this.ingredients.split(/\r?\n/),
           procedure: this.procedure,
         });
-        if (this.file != null) {
-          formData.append('photo', this.file, this.file.name);
-          let r1 = await axios.post('/api/photos', formData);
-          console.log(r1.data);
-          r2.data.img = r1.data.path;
-        }
         this.addItem = r2.data;
         this.$root.$data.items.push(r2.data);
       } catch (error) {
@@ -151,9 +153,9 @@ export default {
     },
     async deleteItem(item) {
       try {
-        await axios.delete("/api/items/" + item._id);
+        //console.log(item.img);
+        await axios.delete("/api/items/" + item._id + item.img);
         this.findItem = null;
-        this.getItems();
         this.$root.$data.items = this.$root.$data.items.filter(x => {
           return x._id != item._id;
         });
