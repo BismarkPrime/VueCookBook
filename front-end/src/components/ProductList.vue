@@ -67,7 +67,6 @@ export default {
       let recipeIndex = this.$root.$data.items.findIndex((recipe) => {
         return recipe == currentRecipe;
       });
-      console.log(recipeIndex);
       this.$root.$data.items[recipeIndex].favorite = !this.$root.$data.items[recipeIndex].favorite;
       this.$forceUpdate()
     },

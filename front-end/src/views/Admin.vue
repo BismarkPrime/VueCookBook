@@ -15,7 +15,7 @@
             v-model="ingredients"
             id="describer"
             name="Ingredients"
-            placeholder="Ingredients"
+            placeholder=" Ingredients"
           ></textarea>
         </p>
         <p>
@@ -23,7 +23,7 @@
             v-model="procedure"
             id="procedure"
             name="Procedure"
-            placeholder="Procedure"
+            placeholder=" Directions"
           ></textarea>
         </p>
         <input v-model="img" placeholder="Image URL" />
@@ -72,7 +72,7 @@
               v-model="findItem.procedure"
               id="procedure2"
               name="Procedure2"
-              placeholder=" Instructions"
+              placeholder=" Directions"
             ></textarea>
           </p>
           <img :src="findItem.img" />
@@ -143,7 +143,6 @@ export default {
         if (this.file != null) {
           formData.append("photo", this.file, this.file.name);
           let r1 = await axios.post("/api/photos", formData);
-          console.log(r1.data.path);
           myImagePath = r1.data.path;
         }
         let r2 = await axios.post("/api/items", {
@@ -208,8 +207,7 @@ export default {
         else {
           imageToPass = item.img
         }
-        let retVal = await axios.delete("/api/items/" + item._id + imageToPass);
-        console.log(retVal);
+        await axios.delete("/api/items/" + item._id + imageToPass);
 	this.findItem = null;
         this.$root.$data.items = this.$root.$data.items.filter((x) => {
           return x._id != item._id;
