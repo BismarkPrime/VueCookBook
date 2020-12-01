@@ -40,7 +40,7 @@
                 </div>
               </div>
               <hr />
-              <h2>Procedure</h2>
+              <h2>Directions</h2>
               <p class="procedure">
                 {{ recipe.procedure }}
               </p>
