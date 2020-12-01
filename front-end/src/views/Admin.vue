@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="col-md-7 upload" v-if="findItem">
-          <input v-model="findItem.name" placeholder="Name" />
+          <input v-model="findItem.name" placeholder="Recipe Name" />
           <input v-model="findItem.category" placeholder="Category" />
           <input v-model="findItem.author" placeholder="Author" />
           <input v-model="findItem.img" placeholder="Image URL" />
@@ -64,7 +64,7 @@
               v-model="findItem.ingredients"
               id="ingredients2"
               name="Ingredients2"
-              placeholder="Ingredients"
+              placeholder=" Ingredients"
             ></textarea>
           </p>
           <p>
@@ -72,16 +72,22 @@
               v-model="findItem.procedure"
               id="procedure2"
               name="Procedure2"
-              placeholder="Procedure"
+              placeholder=" Instructions"
             ></textarea>
           </p>
           <img :src="findItem.img" />
         </div>
         <div class="col-md-2 actions" v-if="findItem">
-          <button class="btn btn-outline-primary delete-item" @click="deleteItem(findItem)">
+          <button
+            class="btn btn-outline-primary delete-item"
+            @click="deleteItem(findItem)"
+          >
             Delete
           </button>
-          <button class="btn btn-outline-primary edit-item" @click="editItem(findItem)">
+          <button
+            class="btn btn-outline-primary edit-item"
+            @click="editItem(findItem)"
+          >
             Save Changes
           </button>
         </div>
@@ -130,9 +136,7 @@ export default {
     fileChanged(event) {
       this.file = event.target.files[0];
     },
-    getItems() {},
     async upload() {
-      //this.loadFromJSON();
       try {
         const formData = new FormData();
         let myImagePath = this.img;
@@ -151,7 +155,24 @@ export default {
           procedure: this.procedure,
         });
         this.addItem = r2.data;
-        this.$root.$data.items.push(r2.data);
+        this.$set(this.addItem, "favorite", false);
+        this.$root.$data.items.push(this.addItem);
+
+        let section = this.$root.$data.cookBook.find((section) => {
+          return section.category == this.addItem.category;
+        });
+        if (section == undefined) {
+          this.$root.$data.cookBook.push({
+            category: this.addItem.category,
+            recipes: [this.$root.$data.items[this.$root.$data.items.length - 1]],
+          });
+        } else {
+          this.$root.$data.cookBook[
+            this.$root.$data.cookBook.findIndex((section) => {
+              return section.category == this.addItem.category;
+            })
+          ].recipes.push(this.addItem);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -180,13 +201,11 @@ export default {
     async deleteItem(item) {
       try {
         let imageToPass = "";
-        //console.log(item.img);
 
-        if (item.img != "" && item.img[0] == 'h') {
+        if (item.img != "" && item.img[0] == "h") {
           imageToPass = "/not/noDelete";
-        }
-        else {
-          imageToPass = item.img
+        } else {
+          imageToPass = item.img;
         }
         await axios.delete("/api/items/" + item._id + imageToPass);
         this.findItem = null;
