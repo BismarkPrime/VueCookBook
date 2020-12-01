@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
-var fs = require('fs');
+const fs = require('fs');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/recipedb', {
 // Configure multer so that it will upload to '../front-end/public/images'
 const multer = require('multer')
 const upload = multer({
-  dest: '../front-end/public/images/',
+  dest: '/var/www/project4.peterseely.com/images/',
   limits: {
     fileSize: 10000000
   }
@@ -93,8 +93,8 @@ app.delete('/api/items/:id/:local/:realpath', async (req, res) => {
   //   console.log("../front-end/public/images/4024735652d329adfe4f9e8b647041a1");
   // let mypath = req.params.mypath;
   if (req.params.local == "images") {
-    console.log(req.params.realpath);
-    fs.unlink("../front-end/public/images/" + req.params.realpath, function (err) {
+    //console.log(req.params.realpath);
+    fs.unlink("/var/www/project4.peterseely.com/images/" + req.params.realpath, function (err) {
       if (err) throw err;
       // if no error, file has been deleted successfully
       console.log('File deleted!');
@@ -134,4 +134,4 @@ app.put('/api/items/:id', async (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3001, () => console.log('Server listening on port 3000!'));

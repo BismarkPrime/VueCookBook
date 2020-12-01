@@ -182,14 +182,16 @@ export default {
         let imageToPass = "";
         //console.log(item.img);
 
-        if (item.img != "" && item.img[0] == 'h') {
+        if (item.img != "" && (item.img.substring(0,7) == "http://" || item.img.substring(0,8) == "https://")) {
           imageToPass = "/not/noDelete";
+		console.log("We ain't gonna delete no files here.");
         }
         else {
           imageToPass = item.img
         }
-        await axios.delete("/api/items/" + item._id + imageToPass);
-        this.findItem = null;
+        let retVal = await axios.delete("/api/items/" + item._id + imageToPass);
+        console.log(retVal);
+	this.findItem = null;
         this.$root.$data.items = this.$root.$data.items.filter((x) => {
           return x._id != item._id;
         });
@@ -306,6 +308,7 @@ button {
 
 .upload img {
   max-width: 300px;
+	margin-bottom: 16px;
 }
 
 .upload {
